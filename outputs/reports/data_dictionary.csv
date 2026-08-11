@@ -1,1 +1,27 @@
-
+Column Name,Data Type,Non-Null Count,Example Value
+state,object,336,Andhra Pradesh
+date,datetime64[ns],336,2024-01-01 00:00:00
+month,object,336,2024-01
+avg_temperature,float64,336,23.7
+total_rainfall_mm,float64,336,240.1
+temp_anomaly_deg,float64,336,-3.34
+rainfall_anomaly_pct,float64,336,161.9
+heatwave_days,int64,336,0
+drought_severity,int64,336,0
+crop_production_1000t,float64,336,8622.0
+irrigation_coverage_pct,float64,336,49.4
+crop_failure_rate_pct,float64,336,2.7
+fertilizer_consumption_kg_per_ha,float64,336,135.0
+land_under_cultivation_1000ha,float64,336,5468.0
+gdp_estimate_crores,float64,336,300000.0
+unemployment_rate_pct,float64,336,6.61
+inflation_rate_pct,float64,336,5.88
+poverty_rate_pct,float64,336,8.3
+per_capita_income_inr,float64,336,60000000.0
+year,int32,336,2024
+month_num,int32,336,1
+quarter,int32,336,1
+season,object,336,Winter
+climate_stress,float64,336,11.435
+agri_stress,float64,336,7.760000000000001
+econ_stress,float64,336,12.49

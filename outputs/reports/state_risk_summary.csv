@@ -1,0 +1,29 @@
+state,climate_risk,agriculture_risk,economic_risk,composite_risk_score,risk_category
+Bihar,3.16,4.43,7.57,4.71,Moderate
+Jharkhand,3.06,4.24,7.76,4.65,Moderate
+Rajasthan,3.52,5.89,4.59,4.62,Moderate
+Uttar Pradesh,3.62,3.64,7.51,4.6,Moderate
+Odisha,2.98,3.72,7.18,4.29,Moderate
+Himachal Pradesh,3.58,4.85,4.38,4.22,Moderate
+Tripura,3.46,4.48,4.8,4.15,Moderate
+Madhya Pradesh,3.25,4.69,4.6,4.09,Moderate
+Kerala,3.46,4.52,4.47,4.08,Moderate
+Nagaland,3.34,4.42,4.65,4.05,Moderate
+Sikkim,3.28,4.32,4.71,4.0,Moderate
+Meghalaya,3.21,4.21,4.85,3.97,Moderate
+Uttarakhand,3.05,4.11,4.75,3.85,Moderate
+Andhra Pradesh,3.09,4.16,4.53,3.83,Moderate
+Maharashtra,3.46,4.84,2.9,3.8,Moderate
+Manipur,3.17,4.07,4.3,3.77,Moderate
+Arunachal Pradesh,3.02,4.03,4.57,3.76,Moderate
+West Bengal,2.92,4.08,4.61,3.75,Moderate
+Gujarat,3.21,4.99,2.85,3.74,Moderate
+Chhattisgarh,2.93,3.65,4.93,3.68,Moderate
+Mizoram,2.91,3.85,4.58,3.66,Moderate
+Telangana,2.85,3.74,4.75,3.64,Moderate
+Assam,2.85,3.6,4.83,3.61,Moderate
+Goa,2.86,3.77,4.55,3.6,Moderate
+Haryana,3.19,2.81,4.97,3.5,Moderate
+Karnataka,3.08,4.12,3.13,3.45,Moderate
+Tamil Nadu,3.09,4.23,2.48,3.33,Moderate
+Punjab,3.14,2.58,4.63,3.32,Moderate

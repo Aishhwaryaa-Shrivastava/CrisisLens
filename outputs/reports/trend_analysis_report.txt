@@ -1,0 +1,51 @@
+
+========================================
+WEEK 3 DAY 13-14: TREND ANALYSIS REPORT
+========================================
+
+Analysis Period: 2024-01 to 2025-12
+Total Regions Analyzed: 36
+
+TREND DISTRIBUTION:
+------------------
+Increasing Risk: 0
+Stable Risk: 36
+Decreasing Risk: 0
+
+TOP 5 ACCELERATING RISK STATES:
+------------------------------
+Goa                            | Monthly Change: +-0.549 | Current Risk: 31.76
+Tripura                        | Monthly Change: +-0.575 | Current Risk: 30.95
+Arunachal Pradesh              | Monthly Change: +-0.580 | Current Risk: 31.71
+Dadra and Nagar Haveli and Daman and Diu | Monthly Change: +-0.590 | Current Risk: 31.25
+Madhya Pradesh                 | Monthly Change: +-0.592 | Current Risk: 30.74
+
+
+TOP 5 IMPROVING RISK STATES:
+---------------------------
+Sikkim                         | Monthly Change: -0.691 | Current Risk: 29.98
+Tamil Nadu                     | Monthly Change: -0.689 | Current Risk: 28.87
+Karnataka                      | Monthly Change: -0.678 | Current Risk: 28.61
+West Bengal                    | Monthly Change: -0.674 | Current Risk: 30.28
+Gujarat                        | Monthly Change: -0.669 | Current Risk: 29.09
+
+
+DOMINANT RISK DRIVERS:
+---------------------
+Agri stress: 36 states
+
+
+KEY INSIGHTS:
+------------
+1. 0 states show significant risk acceleration (>0.2 points/month)
+2. Average monthly change rate: -0.629
+3. Risk volatility (std dev): 0.033
+
+NEXT STEPS:
+----------
+✅ Trend analysis complete
+→ Day 15-17: Build forecasting models using these trends
+→ Day 18: Implement Prophet for advanced forecasting
+
+Generated: 2026-01-30 13:09:55
+========================================

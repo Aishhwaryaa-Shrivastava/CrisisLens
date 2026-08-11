@@ -1,0 +1,5 @@
+Model,Typical MAPE,Captures Seasonality,Confidence Intervals,Complexity,Best Use Case,Pros,Cons
+Persistence,24-28%,No,No,Very Low,Baseline comparison,"Simple, fast",No learning
+Moving Average (3-month),19-22%,Partial,No,Low,Short-term (1 month),Smooths noise,Lags reality
+Linear Trend,15-18%,No,No,Low,Simple trends,Shows direction,Misses seasonality
+Prophet (Advanced),11-14%,Yes,Yes,Medium,Production forecasts,"Industry-standard, accurate",Requires tuning

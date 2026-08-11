@@ -1,0 +1,16 @@
+state,month,predicted_risk,lower_bound,upper_bound,current_risk,change
+Chandigarh,2026-01,72.58,72.49,72.7,70.42,2.17
+Chandigarh,2026-02,71.29,70.98,71.65,70.42,0.87
+Chandigarh,2026-03,72.27,71.64,72.95,70.42,1.85
+Lakshadweep,2026-01,71.5,71.46,71.53,68.45,3.05
+Lakshadweep,2026-02,71.33,71.19,71.43,68.45,2.88
+Lakshadweep,2026-03,69.74,69.49,69.95,68.45,1.3
+Puducherry,2026-01,69.29,69.24,69.36,67.93,1.37
+Puducherry,2026-02,68.05,67.87,68.25,67.93,0.12
+Puducherry,2026-03,69.21,68.85,69.62,67.93,1.28
+Jammu and Kashmir,2026-01,72.1,72.02,72.17,67.15,4.96
+Jammu and Kashmir,2026-02,72.8,72.56,73.04,67.15,5.66
+Jammu and Kashmir,2026-03,67.73,67.27,68.2,67.15,0.59
+Dadra and Nagar Haveli and Daman and Diu,2026-01,70.86,70.75,70.98,67.55,3.31
+Dadra and Nagar Haveli and Daman and Diu,2026-02,72.3,71.91,72.66,67.55,4.76
+Dadra and Nagar Haveli and Daman and Diu,2026-03,70.5,69.73,71.19,67.55,2.95
