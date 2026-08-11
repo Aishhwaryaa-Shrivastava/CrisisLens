@@ -1,0 +1,53 @@
+
+========================================
+WEEK 3 DAY 15-17: FORECASTING REPORT
+========================================
+
+MODELS TESTED:
+--------------
+1. Moving Average Model (3-month window)
+2. Linear Trend Extrapolation Model
+
+VALIDATION RESULTS (Nov-Dec 2025):
+----------------------------------
+Moving Average Error: 5.67
+Linear Trend Error: 5.98
+
+BEST MODEL: Moving Average
+  - Lower average error
+  - More reliable predictions
+
+FEB 2026 FORECAST SUMMARY:
+-------------------------
+Mean Predicted Risk: 23.24
+Highest Risk State: Chandigarh (25.04)
+Lowest Risk State: Tamil Nadu (21.56)
+
+States with Risk > 30: 0
+States with Risk 20-30: 36
+States with Risk < 20: 0
+
+TOP 5 HIGH-RISK STATES (FEB 2026):
+----------------------------------
+Chandigarh                     | Predicted: 25.04 | Current: 33.18
+Jharkhand                      | Predicted: 25.03 | Current: 32.22
+Bihar                          | Predicted: 24.62 | Current: 32.48
+Uttar Pradesh                  | Predicted: 24.61 | Current: 32.18
+Odisha                         | Predicted: 24.49 | Current: 32.46
+
+
+KEY INSIGHTS:
+------------
+1. Moving Average model performed best in validation
+2. Average forecast error: 5.67 points
+3. 0 states expected to see risk increase
+4. 36 states expected to see risk decrease
+
+NEXT STEPS:
+----------
+[COMPLETE] Simple baseline models established
+[NEXT] Day 18: Implement Prophet for advanced forecasting
+[NEXT] Compare Prophet vs simple models
+
+Generated: 2026-01-30 13:17:34
+========================================
