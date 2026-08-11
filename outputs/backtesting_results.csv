@@ -1,0 +1,16 @@
+success,event_name,state,event_date,prediction_date,days_before,predicted_risk,actual_risk,absolute_error,percentage_error,predicted_severity,actual_severity,correct_severity,alert_issued,should_have_alerted,alert_correct,training_samples,features_used
+True,Karnataka Drought,Karnataka,2023-06-15,2023-06-08,7,38.9,36.84,2.07,5.61,MEDIUM,MEDIUM,True,False,False,True,60,7
+True,Karnataka Drought,Karnataka,2023-06-15,2023-06-01,14,40.81,36.84,3.97,10.79,MEDIUM,MEDIUM,True,False,False,True,50,7
+True,Karnataka Drought,Karnataka,2023-06-15,2023-05-16,30,40.81,36.84,3.97,10.79,MEDIUM,MEDIUM,True,False,False,True,50,7
+True,Kerala Monsoon Impact,Kerala,2023-08-20,2023-08-13,7,56.0,61.49,5.49,8.93,HIGH,HIGH,True,True,True,True,80,7
+True,Kerala Monsoon Impact,Kerala,2023-08-20,2023-08-06,14,56.0,61.49,5.49,8.93,HIGH,HIGH,True,True,True,True,80,7
+True,Kerala Monsoon Impact,Kerala,2023-08-20,2023-07-21,30,49.2,61.49,12.3,20.0,MEDIUM,HIGH,False,False,True,False,70,7
+True,Punjab Summer Stress,Punjab,2024-05-10,2024-05-03,7,35.33,35.24,0.09,0.27,MEDIUM,MEDIUM,True,False,False,True,170,7
+True,Punjab Summer Stress,Punjab,2024-05-10,2024-04-26,14,35.55,35.24,0.32,0.89,MEDIUM,MEDIUM,True,False,False,True,160,7
+True,Punjab Summer Stress,Punjab,2024-05-10,2024-04-10,30,35.55,35.24,0.32,0.89,MEDIUM,MEDIUM,True,False,False,True,160,7
+True,Maharashtra Crop Stress,Maharashtra,2024-02-28,2024-02-21,7,34.36,33.66,0.71,2.1,MEDIUM,MEDIUM,True,False,False,True,140,7
+True,Maharashtra Crop Stress,Maharashtra,2024-02-28,2024-02-14,14,34.36,33.66,0.71,2.1,MEDIUM,MEDIUM,True,False,False,True,140,7
+True,Maharashtra Crop Stress,Maharashtra,2024-02-28,2024-01-29,30,33.07,33.66,0.59,1.74,MEDIUM,MEDIUM,True,False,False,True,130,7
+True,Uttar Pradesh Crisis,Uttar Pradesh,2023-11-05,2023-10-29,7,53.56,52.26,1.31,2.5,HIGH,HIGH,True,True,True,True,100,7
+True,Uttar Pradesh Crisis,Uttar Pradesh,2023-11-05,2023-10-22,14,53.56,52.26,1.31,2.5,HIGH,HIGH,True,True,True,True,100,7
+True,Uttar Pradesh Crisis,Uttar Pradesh,2023-11-05,2023-10-06,30,53.56,52.26,1.31,2.5,HIGH,HIGH,True,True,True,True,100,7
