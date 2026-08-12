@@ -9,6 +9,8 @@
 ![SHAP](https://img.shields.io/badge/SHAP-Explainable%20AI-green)
 ![License](https://img.shields.io/badge/License-MIT-yellow)
 ![Status](https://img.shields.io/badge/Status-Research%20Prototype-orange)
+![CrisisLens Dashboard](docs/images/hero-dashboard.png)
+
 
 **CrisisLens** is a research-oriented crisis intelligence platform that combines **climate, agricultural, and economic indicators** to estimate regional stress, analyze historical risk patterns, forecast future risk, and provide interpretable machine-learning insights through an interactive dashboard.
 
