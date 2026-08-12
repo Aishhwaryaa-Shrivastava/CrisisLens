@@ -155,9 +155,9 @@ SHAP is used to understand how individual features influence model predictions.
 
 Output:
 
-```text
+text
 outputs/figures/week4_shap_summary.png
-```
+
 
 ---
 
