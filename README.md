@@ -23,6 +23,8 @@ The system combines multiple dimensions of risk into a unified analytical framew
 
 The goal is to transform complex multi-source datasets into actionable insights that can support **risk monitoring, early warning, planning, and decision-making**.
 
+> ⚠️ **Project Status:** CrisisLens is currently a research/prototype system. Some datasets and generated outputs may use simulated data and should not be treated as operational government or emergency-warning information.
+
 ---
 
 # 🎯 Problem Statement
@@ -89,11 +91,11 @@ Economic vulnerability is incorporated through indicators such as:
 
 ---
 
-## 📊 Multi-Factor Risk Score
+# 📊 Multi-Factor Risk Score
 
 The system combines multiple stress components into an overall crisis-risk score.
 
-Current dashboard implementation uses:
+### Current Dashboard Weights
 
 | Component   | Weight |
 | ----------- | -----: |
@@ -110,11 +112,13 @@ Current dashboard implementation uses:
 | `50 – 69.99` | 🟠 High     |
 |       `≥ 70` | 🔴 Critical |
 
+> **Note:** These weights and thresholds represent the current prototype methodology and should be empirically validated before operational deployment.
+
 ---
 
 # 🤖 Machine Learning
 
-CrisisLens uses machine learning to investigate the relationship between environmental, agricultural, and economic indicators and overall crisis risk.
+CrisisLens uses machine learning to investigate relationships between environmental, agricultural, and economic indicators and overall crisis risk.
 
 ### Machine Learning Components
 
@@ -129,36 +133,31 @@ CrisisLens uses machine learning to investigate the relationship between environ
 
 # 🧠 Explainable AI
 
-One of the important components of CrisisLens is **model interpretability**.
+An important component of CrisisLens is **model interpretability**.
 
 Instead of only predicting risk, the system attempts to answer:
 
 > **"Why is this region considered high risk?"**
 
-The project uses:
+## Feature Importance
 
-### Feature Importance
+The feature-importance workflow identifies variables that contribute most strongly to model predictions.
 
 ```text
 Feature
    ↓
-Model
+Machine Learning Model
    ↓
 Feature Importance
    ↓
 Identify Major Risk Drivers
 ```
 
-### SHAP
+## SHAP
 
 SHAP is used to understand how individual features influence model predictions.
 
-Output:
-
-```markdown
-### SHAP
-
-SHAP is used to understand how individual features influence model predictions.
+### SHAP Summary
 
 ![SHAP Summary](outputs/figures/week4_shap_summary.png)
 
@@ -168,7 +167,7 @@ SHAP is used to understand how individual features influence model predictions.
 
 CrisisLens includes several forecasting approaches.
 
-### Models
+## Forecasting Models
 
 * Simple baseline forecasting
 * ARIMA
@@ -180,24 +179,24 @@ Forecasting horizons include:
 * 60 days
 * 90 days
 
-The project also compares forecasting approaches and evaluates predictions against historical observations.
+The project compares forecasting approaches and evaluates predictions against historical observations.
 
 ---
 
 # 🧪 Model Validation & Backtesting
 
-The project includes a dedicated backtesting workflow.
+The project includes a dedicated backtesting workflow to evaluate forecasting performance against historical observations.
 
-Important outputs include:
+### Important Outputs
 
 ```text
 outputs/reports/model_comparison.csv
 outputs/reports/forecast_validation_results.csv
-outputs/backtesting_results.csv
-outputs/week4_backtesting_report.txt
+outputs/reports/backtesting_results.csv
+outputs/reports/week4_backtesting_report.txt
 ```
 
-Validation visualizations include:
+### Validation Visualizations
 
 ```text
 outputs/figures/forecast_reality_check.png
@@ -213,36 +212,32 @@ These outputs help evaluate whether the forecasting models are able to reproduce
 
 ## 🎬 Demo Video
 
-### Option 1 — YouTube
+### YouTube
+
+Replace `YOUR_VIDEO_ID` with the actual YouTube video ID:
 
 ```markdown
 [![CrisisLens Demo](https://img.youtube.com/vi/YOUR_VIDEO_ID/0.jpg)](https://www.youtube.com/watch?v=YOUR_VIDEO_ID)
 ```
 
-### Option 2 — GitHub Video
+### GitHub Video
 
-If you upload the video directly to GitHub, you can add it to your README using the GitHub-generated video link.
+If the demo is uploaded directly to GitHub, add the generated GitHub video asset URL:
 
-Example:
-
-```markdown
-## 🎬 Project Demo
-
-https://github.com/YOUR_USERNAME/CrisisLens/assets/YOUR_VIDEO_ID
+```text
+https://github.com/Aishhwaryaa-Shrivastava/CrisisLens/assets/YOUR_VIDEO_ID
 ```
 
-
+---
 
 # 📸 Dashboard Screenshots
 
-Create a folder in your repository:
+Create the following directory:
 
 ```text
 docs/
 └── images/
 ```
-
-Then place your screenshots inside it.
 
 Recommended structure:
 
@@ -256,39 +251,31 @@ docs/
     └── model-explainability.png
 ```
 
-Then add them to the README.
-
 ## Dashboard Overview
 
-```markdown
 ![CrisisLens Dashboard](docs/images/dashboard-overview.png)
-```
 
 ## State Risk Analysis
 
-```markdown
 ![State Risk Analysis](docs/images/state-risk-analysis.png)
-```
 
 ## Risk Forecast
 
-```markdown
 ![Risk Forecast](docs/images/risk-forecast.png)
-```
+
+## Risk Trends
+
+![Risk Trends](docs/images/risk-trends.png)
 
 ## Model Explainability
 
-```markdown
 ![Model Explainability](docs/images/model-explainability.png)
-```
 
 ---
 
 # 📊 Project Outputs & ML Results
 
-The repository already contains a large collection of generated figures.
-
-All figures are located in:
+Generated figures are stored in:
 
 ```text
 outputs/figures/
@@ -298,25 +285,23 @@ outputs/figures/
 
 ## 🌡️ Data Quality Analysis
 
-![Data Quality Overview](outputs/figures/week1_data_quality_overview.png)
-
 The data-quality analysis provides an overview of the datasets used by CrisisLens.
 
----
+### Data Quality Overview
 
-## 🔥 Top 10 Hottest States
+![Data Quality Overview](outputs/figures/week1_data_quality_overview.png)
 
-![Top 10 Hottest States](outputs/figures/week1_top_10_hottest_states.png)
+### 🔥 Top 10 Hottest States
 
 This visualization compares temperature-related conditions across states.
 
----
+![Top 10 Hottest States](outputs/figures/week1_top_10_hottest_states.png)
 
-## 🌾 Drought vs Crop Failure
-
-![Drought vs Crop Failure](outputs/figures/week1_drought_vs_crop_failure.png)
+### 🌾 Drought vs Crop Failure
 
 This analysis investigates the relationship between drought conditions and agricultural outcomes.
+
+![Drought vs Crop Failure](outputs/figures/week1_drought_vs_crop_failure.png)
 
 ---
 
@@ -324,33 +309,27 @@ This analysis investigates the relationship between drought conditions and agric
 
 ## Risk Category Distribution
 
+This visualization shows the distribution of regions across different crisis-risk categories.
+
 ![Risk Category Distribution](outputs/figures/week2_risk_category_distribution.png)
-
-This visualization shows the distribution of regions across the different crisis-risk categories.
-
----
 
 ## Top 10 Risk States
 
+This analysis identifies the highest-risk states according to the calculated risk score.
+
 ![Top 10 Risk States](outputs/figures/week2_top10_risk_states.png)
-
-The analysis identifies the highest-risk states according to the calculated risk score.
-
----
 
 ## Risk Correlation Heatmap
 
+The correlation analysis helps identify relationships between different risk indicators.
+
 ![Risk Correlation Heatmap](outputs/figures/week2_risk_correlation_heatmap.png)
-
-The correlation analysis helps identify relationships between the different risk indicators.
-
----
 
 ## Risk Breakdown
 
-![Risk Breakdown](outputs/figures/week2_risk_breakdown_stacked.png)
-
 This visualization breaks down the contribution of different risk components.
+
+![Risk Breakdown](outputs/figures/week2_risk_breakdown_stacked.png)
 
 ---
 
@@ -358,25 +337,21 @@ This visualization breaks down the contribution of different risk components.
 
 ## Top Risk States Over Time
 
-![Trend Analysis](outputs/figures/week3_trend_analysis_top_states.png)
-
 This visualization tracks how risk changes across the highest-risk states.
 
----
+![Top Risk States Over Time](outputs/figures/week3_trend_analysis_top_states.png)
 
 ## Monthly Risk Change
 
-![Monthly Change Rates](outputs/figures/week3_monthly_change_rates.png)
-
 Monthly changes are analyzed to identify regions experiencing increasing or decreasing risk.
 
----
+![Monthly Risk Change](outputs/figures/week3_monthly_change_rates.png)
 
 ## Component Trends
 
-![Component Trends](outputs/figures/week3_component_trends_top5.png)
+This visualization compares the evolution of individual risk components over time.
 
-This figure compares the evolution of individual risk components over time.
+![Component Trends](outputs/figures/week3_component_trends_top5.png)
 
 ---
 
@@ -384,25 +359,21 @@ This figure compares the evolution of individual risk components over time.
 
 ## Simple Forecast
 
-![Simple Forecast](outputs/figures/week3_simple_forecast_top5.png)
-
 Baseline forecasting is used as a reference for comparing more advanced forecasting methods.
 
----
+![Simple Forecast](outputs/figures/week3_simple_forecast_top5.png)
 
 ## Prophet Forecast
 
-![Prophet Forecast](outputs/figures/week3_prophet_forecasts_top5.png)
-
 Prophet is used to model temporal patterns and generate future risk estimates.
 
----
+![Prophet Forecast](outputs/figures/week3_prophet_forecasts_top5.png)
 
 ## Model Comparison
 
-![Model Comparison](outputs/figures/week3_model_comparison.png)
-
 Different forecasting approaches are compared using validation metrics.
+
+![Model Comparison](outputs/figures/week3_model_comparison.png)
 
 ---
 
@@ -410,25 +381,21 @@ Different forecasting approaches are compared using validation metrics.
 
 ## Feature Importance
 
+Feature importance analysis helps identify which variables contribute most strongly to model predictions.
+
 ![Feature Importance](outputs/figures/week4_feature_importance.png)
-
-Feature importance analysis helps identify which variables contribute most strongly to the model's predictions.
-
----
 
 ## SHAP Summary
 
-![SHAP Summary](outputs/figures/week4_shap_summary.png)
-
 SHAP analysis provides a more detailed explanation of how individual features influence predictions.
 
----
+![SHAP Summary](outputs/figures/week4_shap_summary.png)
 
 ## Correlation Matrix
 
-![Correlation Matrix](outputs/figures/week4_correlation_matrix.png)
-
 The correlation matrix provides an overview of relationships between model features.
+
+![Correlation Matrix](outputs/figures/week4_correlation_matrix.png)
 
 ---
 
@@ -436,25 +403,21 @@ The correlation matrix provides an overview of relationships between model featu
 
 ## Forecast vs Reality
 
-![Forecast Reality Check](outputs/figures/forecast_reality_check.png)
-
 Forecast predictions are compared with observed historical values.
 
----
+![Forecast vs Reality](outputs/figures/forecast_reality_check.png)
 
 ## Seasonal Validation
 
+The forecasting pipeline is evaluated against historical seasonal patterns.
+
 ![Seasonal Validation](outputs/figures/seasonal_validation.png)
-
-The forecasting pipeline is also evaluated against seasonal patterns.
-
----
 
 ## Backtesting
 
-![Backtesting Validation](outputs/week4_backtesting_validation.png)
+Backtesting evaluates forecasting performance using historical observations.
 
-Backtesting is used to evaluate model performance using historical observations.
+![Backtesting Validation](outputs/figures/week4_backtesting_validation.png)
 
 ---
 
@@ -511,6 +474,7 @@ CrisisLens/
 │   │   └── ...
 │   │
 │   └── reports/
+│       ├── risk_assessment_report.txt
 │       ├── feature_importance.csv
 │       ├── model_comparison.csv
 │       ├── forecast_validation_results.csv
@@ -519,7 +483,8 @@ CrisisLens/
 │       ├── high_risk_states.csv
 │       ├── prophet_forecasts_2026.csv
 │       ├── simple_forecasts_2026.csv
-│       └── ...
+│       ├── backtesting_results.csv
+│       └── week4_backtesting_report.txt
 │
 ├── src/
 │   ├── app_dashboard.py
@@ -532,6 +497,7 @@ CrisisLens/
 │
 ├── download_data.py
 ├── requirements.txt
+├── LICENSE
 └── README.md
 ```
 
@@ -539,37 +505,35 @@ CrisisLens/
 
 # 🛠️ Technologies Used
 
-| Technology       | Purpose                      |
-| ---------------- | ---------------------------- |
-| Python           | Core programming language    |
-| Pandas           | Data processing              |
-| NumPy            | Numerical computation        |
-| SciPy            | Scientific computing         |
-| Matplotlib       | Data visualization           |
-| Seaborn          | Statistical visualization    |
-| Plotly           | Interactive visualization    |
-| Scikit-learn     | Machine learning             |
-| Statsmodels      | Statistical modeling / ARIMA |
-| Prophet          | Time-series forecasting      |
-| SHAP             | Model explainability         |
-| Streamlit        | Interactive dashboard        |
-| Jupyter Notebook | Data science experimentation |
-| Power BI         | Additional reporting         |
+| Technology           | Purpose                        |
+| -------------------- | ------------------------------ |
+| **Python**           | Core programming language      |
+| **Pandas**           | Data processing                |
+| **NumPy**            | Numerical computation          |
+| **SciPy**            | Scientific computing           |
+| **Matplotlib**       | Data visualization             |
+| **Seaborn**          | Statistical visualization      |
+| **Plotly**           | Interactive visualization      |
+| **Scikit-learn**     | Machine learning               |
+| **Statsmodels**      | Statistical modeling and ARIMA |
+| **Prophet**          | Time-series forecasting        |
+| **SHAP**             | Model explainability           |
+| **Streamlit**        | Interactive dashboard          |
+| **Jupyter Notebook** | Data science experimentation   |
+| **Power BI**         | Additional reporting           |
 
 ---
 
 # ⚙️ Installation
 
-## 1. Clone the repository
+## 1. Clone the Repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/CrisisLens.git
+git clone https://github.com/Aishhwaryaa-Shrivastava/CrisisLens.git
 cd CrisisLens
 ```
 
----
-
-## 2. Create a virtual environment
+## 2. Create a Virtual Environment
 
 ### Windows
 
@@ -585,15 +549,15 @@ python3 -m venv venv
 source venv/bin/activate
 ```
 
----
+## 3. Install Dependencies
 
-## 3. Install dependencies
+The `requirements.txt` file is located in the project root:
 
 ```bash
-pip install -r src/requirements.txt
+pip install -r requirements.txt
 ```
 
-If you do not have a requirements file available:
+If the requirements file is unavailable, install the main dependencies manually:
 
 ```bash
 pip install pandas numpy scipy matplotlib seaborn plotly scikit-learn statsmodels prophet shap streamlit jupyter
@@ -603,35 +567,37 @@ pip install pandas numpy scipy matplotlib seaborn plotly scikit-learn statsmodel
 
 # ▶️ Run the Dashboard
 
-Run:
+From the project root:
 
 ```bash
 streamlit run src/app_dashboard.py
 ```
 
-The dashboard will normally be available at:
+The dashboard should normally be available at:
 
 ```text
 http://localhost:8501
 ```
 
-Open the URL in your browser.
+Open the address in your browser.
 
 ---
 
-# 🔐 Demo Login
+# 🔐 Authentication
 
-The current prototype contains demo credentials:
+The current prototype may include demonstration authentication.
 
-```text
-Email:
-admin@disaster.gov
+> ⚠️ **Do not commit real passwords, API keys, tokens, or production credentials to GitHub.**
 
-Password:
-admin123
-```
+For production deployment, authentication should use secure mechanisms such as:
 
-> ⚠️ These credentials are intended only for demonstration. They should be replaced with secure authentication before production deployment.
+* Password hashing
+* Environment variables or a secrets manager
+* Role-based access control
+* Secure session management
+* Credential rotation
+
+If a real credential has previously been committed to the repository, it should be revoked or changed immediately.
 
 ---
 
@@ -772,8 +738,8 @@ outputs/reports/prediction_examples.csv
 
 ```text
 outputs/reports/forecast_validation_results.csv
-outputs/backtesting_results.csv
-outputs/week4_backtesting_report.txt
+outputs/reports/backtesting_results.csv
+outputs/reports/week4_backtesting_report.txt
 ```
 
 ---
@@ -787,11 +753,12 @@ Important limitations include:
 * The current data-generation pipeline includes simulated data.
 * Forecast accuracy depends on the quality and amount of historical data.
 * Models require additional validation using independent real-world datasets.
-* Risk-weight methodology should be standardized across all project components.
+* Risk-weight methodology should be empirically validated and standardized.
 * The current dashboard authentication is designed for demonstration.
 * Predictions should be treated as analytical estimates rather than guaranteed outcomes.
+* The system is not intended to replace official emergency-management or government early-warning systems.
 
-For real-world deployment, the system should use verified data sources and undergo extensive validation.
+For real-world deployment, the system should use verified data sources and undergo extensive validation against historical crisis events.
 
 ---
 
@@ -806,7 +773,7 @@ For real-world deployment, the system should use verified data sources and under
 * [ ] Improve authentication and authorization
 * [ ] Add CI/CD
 * [ ] Add unit and integration tests
-* [ ] Deploy dashboard to cloud
+* [ ] Deploy dashboard to the cloud
 * [ ] Add additional ML models
 * [ ] Add probabilistic forecasting
 * [ ] Add real-world historical crisis-event validation
@@ -815,45 +782,57 @@ For real-world deployment, the system should use verified data sources and under
 
 # 🤝 Contributing
 
-Contributions are welcome.
+Contributions are welcome!
 
-### 1. Fork the repository
+## 1. Fork the Repository
+
+Use GitHub's **Fork** button to create your own copy of the repository.
+
+Then clone your fork:
 
 ```bash
-git fork https://github.com/YOUR_USERNAME/CrisisLens
+git clone https://github.com/YOUR_USERNAME/CrisisLens.git
+cd CrisisLens
 ```
 
-### 2. Create a feature branch
+## 2. Create a Feature Branch
 
 ```bash
 git checkout -b feature/your-feature
 ```
 
-### 3. Make your changes
+## 3. Make Your Changes
 
-### 4. Commit
+Implement and test your changes.
+
+## 4. Commit
 
 ```bash
 git add .
 git commit -m "Add new feature"
 ```
 
-### 5. Push
+## 5. Push
 
 ```bash
 git push origin feature/your-feature
 ```
 
-### 6. Open a Pull Request
+## 6. Open a Pull Request
+
+Open a pull request on GitHub and describe the changes you made.
 
 ---
 
+# 📜 License
 
-## 📜 License
-
-CrisisLens is licensed under the [MIT License](LICENSE).
+CrisisLens is licensed under the **MIT License**.
 
 You are free to use, modify, distribute, and sublicense this project, subject to the terms of the MIT License.
+
+See the [LICENSE](LICENSE) file for the complete license text.
+
+---
 
 # 👨‍💻 Project Summary
 
@@ -883,17 +862,19 @@ The project demonstrates how multi-dimensional environmental, agricultural, and 
 
 If you find CrisisLens useful:
 
-⭐ Star the repository
-🍴 Fork the project
-🐛 Report issues
-💡 Suggest improvements
-🤝 Contribute
+* ⭐ Star the repository
+* 🍴 Fork the project
+* 🐛 Report issues
+* 💡 Suggest improvements
+* 🤝 Contribute
 
 ---
 
-## 📬 Contact
+# 📬 Contact
 
 **Project:** CrisisLens
-**Repository:** `https://github.com/Aishhwaryaa-Shrivastava/CrisisLens`
+
+**Repository:** [Aishhwaryaa-Shrivastava/CrisisLens](https://github.com/Aishhwaryaa-Shrivastava/CrisisLens)
 
 For questions, suggestions, or collaboration, open an issue or submit a pull request.
+
