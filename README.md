@@ -2,6 +2,14 @@
 
 ### Multi-Factor Crisis Risk Assessment and Forecasting for India
 
+![Python](https://img.shields.io/badge/Python-3.10%2B-blue)
+![Streamlit](https://img.shields.io/badge/Streamlit-Dashboard-red)
+![Scikit-learn](https://img.shields.io/badge/Scikit--learn-Machine%20Learning-orange)
+![Prophet](https://img.shields.io/badge/Prophet-Forecasting-purple)
+![SHAP](https://img.shields.io/badge/SHAP-Explainable%20AI-green)
+![License](https://img.shields.io/badge/License-MIT-yellow)
+![Status](https://img.shields.io/badge/Status-Research%20Prototype-orange)
+
 **CrisisLens** is a research-oriented crisis intelligence platform that combines **climate, agricultural, and economic indicators** to estimate regional stress, analyze historical risk patterns, forecast future risk, and provide interpretable machine-learning insights through an interactive dashboard.
 
 > **Project Status:** Research / Academic Prototype
