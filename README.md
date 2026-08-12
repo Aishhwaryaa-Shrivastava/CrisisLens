@@ -1,535 +1,835 @@
-# 🌍 CrisisLens — Multi-Factor Crisis Risk Forecasting System
+# 🌍 CrisisLens
 
-> **An AI-powered crisis intelligence and forecasting platform that combines climate, agricultural, and economic indicators to assess and forecast regional crisis risk across India.**
+### Multi-Factor Crisis Risk Assessment and Forecasting for India
+
+**CrisisLens** is a research-oriented crisis intelligence platform that combines **climate, agricultural, and economic indicators** to estimate regional stress, analyze historical risk patterns, forecast future risk, and provide interpretable machine-learning insights through an interactive dashboard.
+
+> **Project Status:** Research / Academic Prototype
+> **Scope:** India — 36 regions comprising 28 States and 8 Union Territories
+> **Primary Interface:** Streamlit Dashboard
+> **Risk Scale:** 0–100
 
 ---
 
 ## 📌 Overview
 
-**CrisisLens** is a data-driven crisis risk assessment and forecasting platform designed to identify regions that may be vulnerable to emerging climate, agricultural, and economic stress.
+Crisis situations are rarely caused by a single factor. Environmental stress can affect agricultural productivity, agricultural losses can increase economic pressure, and economic vulnerability can reduce the ability of communities to absorb shocks.
 
-The system combines multiple dimensions of risk into a unified analytical framework and provides:
+CrisisLens addresses this problem by integrating three major dimensions:
 
-* 📊 Regional crisis-risk assessment
-* 🌦️ Climate stress analysis
-* 🌾 Agricultural stress analysis
-* 💰 Economic vulnerability analysis
-* 📈 Historical trend analysis
-* 🔮 Future risk forecasting
-* 🤖 Machine-learning-based risk prediction
-* 🧠 Explainable AI using SHAP
-* 🧪 Forecast validation and backtesting
-* 🖥️ Interactive Streamlit dashboard
+```text
+Climate Stress
+      │
+      ├──────────────┐
+      │              │
+      ▼              ▼
+Agricultural Stress ──────► Economic Stress
+      │                       │
+      └──────────┬────────────┘
+                 ▼
+        Composite Risk Score
+                 │
+        ┌────────┴────────┐
+        ▼                 ▼
+   Trend Analysis     Forecasting
+        │                 │
+        └────────┬────────┘
+                 ▼
+       ML + Explainability
+                 │
+                 ▼
+        Streamlit Dashboard
+```
 
-The goal is to transform complex multi-source datasets into actionable insights that can support **risk monitoring, early warning, planning, and decision-making**.
-
-> ⚠️ **Project Status:** CrisisLens is currently a research/prototype system. Some datasets and generated outputs may use simulated data and should not be treated as operational government or emergency-warning information.
+The objective is not to replace official disaster-management or government early-warning systems. Instead, CrisisLens demonstrates how heterogeneous environmental, agricultural, and socioeconomic indicators can be combined into a unified analytical framework.
 
 ---
 
 # 🎯 Problem Statement
 
-Crisis events are rarely caused by a single factor.
+Traditional risk-monitoring approaches often examine climate, agriculture, and economic indicators independently.
+
+However, regional vulnerability may emerge from the interaction of several factors.
 
 For example:
 
 ```text
-Extreme Weather
-      ↓
-Agricultural Stress
-      ↓
-Economic Pressure
-      ↓
-Increased Regional Vulnerability
-      ↓
-Potential Crisis
+Rainfall Deficit / Extreme Weather
+              ↓
+        Climate Stress
+              ↓
+       Crop Stress / Failure
+              ↓
+     Agricultural Pressure
+              ↓
+      Economic Vulnerability
+              ↓
+     Increased Regional Risk
 ```
 
-Traditional monitoring systems often examine climate, agriculture, or economic indicators separately.
-
-**CrisisLens combines these dimensions into one framework** to provide a more comprehensive view of regional risk.
+CrisisLens attempts to capture this interaction through a multi-factor risk index and complementary forecasting and machine-learning workflows.
 
 ---
 
-# 🚀 Key Features
+# ✨ Key Features
 
-## 🌦️ Climate Risk Analysis
+### 🌦️ Climate Risk Analysis
 
-CrisisLens analyzes climate-related indicators such as:
+CrisisLens incorporates:
 
-* Temperature
-* Rainfall
-* Rainfall anomalies
-* Drought indicators
-* Heatwave conditions
-* Climate stress
+* Average temperature
+* Total rainfall
+* Temperature anomaly
+* Rainfall anomaly
+* Heatwave days
+* Drought severity
 
----
+### 🌾 Agricultural Risk Analysis
 
-## 🌾 Agricultural Risk Analysis
-
-The platform evaluates agricultural vulnerability using indicators such as:
+The agricultural component includes:
 
 * Crop production
-* Crop failure
-* Cultivated area
 * Irrigation coverage
+* Crop failure rate
+* Fertilizer consumption
+* Land under cultivation
+
+### 💰 Economic Risk Analysis
+
+The economic component incorporates:
+
+* GDP estimate
+* Unemployment rate
+* Inflation rate
+* Poverty rate
+* Per-capita income
+
+### 📊 Risk Assessment
+
+* Composite regional risk score
+* Climate stress
 * Agricultural stress
-
----
-
-## 💰 Economic Risk Analysis
-
-Economic vulnerability is incorporated through indicators such as:
-
-* GDP
-* Income
-* Inflation
-* Unemployment
-* Poverty
 * Economic stress
+* Risk categorization
+* State/UT comparison
+* Risk-driver analysis
+
+### 📈 Trend Analysis
+
+* Historical risk trends
+* Monthly risk changes
+* Component-level trends
+* State-level comparisons
+
+### 🔮 Forecasting
+
+The project includes:
+
+* Moving-average forecasting
+* Linear-trend forecasting
+* ARIMA implementation
+* Prophet forecasting
+* Short-term future risk estimation
+* Forecast comparison
+
+### 🤖 Machine Learning
+
+* Random Forest Regression
+* Feature importance
+* Prediction examples
+* Model evaluation
+* Correlation analysis
+
+### 🧠 Explainable AI
+
+* SHAP analysis
+* Feature-importance visualization
+* Risk-driver identification
+* Prediction interpretation
+
+### 🧪 Validation
+
+* Time-based backtesting workflow
+* 7-day, 14-day and 30-day lead-time experiments
+* Forecast-vs-observation comparison
+* Severity classification evaluation
+* Alert-decision evaluation
+
+### 🖥️ Interactive Dashboard
+
+The Streamlit application provides:
+
+* Regional risk overview
+* State/UT selection
+* Climate/agriculture/economic breakdown
+* Historical trends
+* Forecasts
+* Risk categories
+* Risk-driver interpretation
+* Interactive visualizations
 
 ---
 
-# 📊 Multi-Factor Risk Score
+# 🏗️ System Architecture
 
-The system combines multiple stress components into an overall crisis-risk score.
+```text
+                    ┌──────────────────────┐
+                    │    Climate Data      │
+                    │ Temperature          │
+                    │ Rainfall             │
+                    │ Drought              │
+                    │ Heatwaves            │
+                    └──────────┬───────────┘
+                               │
+                               │
+┌──────────────────────┐       │       ┌──────────────────────┐
+│  Agriculture Data    │───────┼───────│   Economic Data      │
+│ Crop Production      │       │       │ GDP                  │
+│ Crop Failure         │       │       │ Unemployment         │
+│ Irrigation           │       │       │ Inflation            │
+└──────────────────────┘       │       │ Poverty              │
+                               │       └──────────────────────┘
+                               ▼
+                    ┌──────────────────────┐
+                    │ Data Cleaning &      │
+                    │ Standardization      │
+                    └──────────┬───────────┘
+                               ▼
+                    ┌──────────────────────┐
+                    │ Data Integration     │
+                    │ Daily → Monthly      │
+                    └──────────┬───────────┘
+                               ▼
+                    ┌──────────────────────┐
+                    │ Risk Scoring Engine  │
+                    └──────────┬───────────┘
+                               ▼
+              ┌────────────────┴────────────────┐
+              │                                 │
+              ▼                                 ▼
+     ┌──────────────────┐             ┌──────────────────┐
+     │ Trend Analysis   │             │ ML Prediction    │
+     └────────┬─────────┘             └────────┬─────────┘
+              │                                │
+              ▼                                ▼
+     ┌──────────────────┐             ┌──────────────────┐
+     │ Forecasting      │             │ SHAP / Feature   │
+     │ ARIMA / Prophet  │             │ Importance       │
+     └────────┬─────────┘             └────────┬─────────┘
+              │                                │
+              └──────────────┬─────────────────┘
+                             ▼
+                  ┌──────────────────────┐
+                  │ Validation /         │
+                  │ Backtesting          │
+                  └──────────┬───────────┘
+                             ▼
+                  ┌──────────────────────┐
+                  │ Streamlit Dashboard  │
+                  └──────────────────────┘
+```
 
-### Current Dashboard Weights
+---
 
-| Component   | Weight |
-| ----------- | -----: |
-| Climate     |    35% |
-| Agriculture |    35% |
-| Economic    |    30% |
+# 📊 Risk Methodology
 
-### Risk Categories
+## 1. Indicator Selection
 
-|        Score | Category    |
-| -----------: | ----------- |
-|       `< 30` | 🟢 Low      |
-| `30 – 49.99` | 🟡 Medium   |
-| `50 – 69.99` | 🟠 High     |
-|       `≥ 70` | 🔴 Critical |
+The system uses three major categories.
 
-> **Note:** These weights and thresholds represent the current prototype methodology and should be empirically validated before operational deployment.
+| Category       | Example Indicators                                        |
+| -------------- | --------------------------------------------------------- |
+| 🌦️ Climate    | Temperature anomaly, rainfall anomaly, drought, heatwaves |
+| 🌾 Agriculture | Crop failure, irrigation, crop production                 |
+| 💰 Economic    | Unemployment, inflation, poverty                          |
+
+---
+
+## 2. Normalization
+
+Indicators have different units and scales.
+
+For example:
+
+```text
+Temperature      → °C
+Rainfall         → mm
+Crop failure     → %
+GDP              → Crores
+Unemployment     → %
+```
+
+Therefore, the pipeline normalizes indicators before combining them.
+
+The final merged pipeline uses normalized values and percentile-based category stress scores on a **0–100 scale**.
+
+---
+
+## 3. Category Construction
+
+### Climate Stress
+
+Climate stress is constructed using:
+
+* Temperature anomaly
+* Rainfall anomaly
+* Heatwave days
+* Drought severity
+
+### Agricultural Stress
+
+Agricultural stress incorporates:
+
+* Crop failure
+* Irrigation conditions
+* Drought-related agricultural pressure
+
+### Economic Stress
+
+Economic stress incorporates:
+
+* Unemployment
+* Inflation
+* Poverty
+
+---
+
+## 4. Composite Risk Score
+
+The current integrated pipeline uses:
+
+| Component   |  Weight |
+| ----------- | ------: |
+| Climate     | **40%** |
+| Agriculture | **35%** |
+| Economic    | **25%** |
+
+The composite risk is calculated conceptually as:
+
+```text
+Total Risk =
+    0.40 × Climate Stress
+  + 0.35 × Agricultural Stress
+  + 0.25 × Economic Stress
+```
+
+The resulting score ranges from approximately **0 to 100**.
+
+---
+
+## 5. Risk Categories
+
+The Streamlit dashboard uses the following thresholds:
+
+| Risk Score | Category    |
+| ---------: | ----------- |
+|     `< 30` | 🟢 Low      |
+| `30 – <50` | 🟡 Medium   |
+| `50 – <70` | 🟠 High     |
+|     `≥ 70` | 🔴 Critical |
+
+These thresholds are **prototype/heuristic thresholds** and should be calibrated against independently verified historical crisis outcomes before operational deployment.
 
 ---
 
 # 🤖 Machine Learning
 
-CrisisLens uses machine learning to investigate relationships between environmental, agricultural, and economic indicators and overall crisis risk.
+## Random Forest Regression
 
-### Machine Learning Components
+CrisisLens includes a Random Forest regression workflow to model the relationship between the available indicators and the composite `total_risk` index.
 
-* Random Forest
-* Feature importance analysis
-* SHAP explainability
-* Prediction examples
-* Model evaluation
-* Correlation analysis
+### Model Configuration
+
+```text
+Algorithm          : Random Forest Regressor
+Number of Trees    : 100
+Maximum Depth      : 10
+Minimum Split      : 5
+Minimum Leaf       : 2
+Train/Test Split   : 80% / 20%
+Random State       : 42
+```
+
+The model uses climate, agricultural, and economic indicators as input features.
+
+### Important Interpretation
+
+The current ML experiment predicts the **CrisisLens composite risk index**, which is itself constructed from the underlying risk indicators.
+
+Therefore:
+
+> The Random Forest experiment demonstrates nonlinear prediction and explainability of the constructed risk index. It should not be interpreted as an independently validated model of real-world crisis occurrence.
+
+A future version of CrisisLens should introduce independently observed crisis-event labels to evaluate genuine event prediction.
+
+---
+
+# 📈 Machine Learning Results
+
+The current Random Forest experiment produced:
+
+| Metric           |               Result |
+| ---------------- | -------------------: |
+| Records          |                  864 |
+| Features         |                   16 |
+| Training samples |                  691 |
+| Test samples     |                  173 |
+| Test R²          |            **0.996** |
+| Test MAE         | **0.64 risk points** |
+
+The high R² should be interpreted carefully because the target variable is a deterministic composite risk index derived from related input indicators.
 
 ---
 
 # 🧠 Explainable AI
 
-An important component of CrisisLens is **model interpretability**.
-
-Instead of only predicting risk, the system attempts to answer:
-
-> **"Why is this region considered high risk?"**
+CrisisLens uses two complementary approaches.
 
 ## Feature Importance
 
-The feature-importance workflow identifies variables that contribute most strongly to model predictions.
+The Random Forest feature-importance analysis identified the following leading variables:
+
+| Rank | Feature             | Importance |
+| ---: | ------------------- | ---------: |
+|    1 | Rainfall anomaly    | **68.29%** |
+|    2 | Crop failure rate   | **14.67%** |
+|    3 | Drought severity    | **14.60%** |
+|    4 | Crop production     |  **1.47%** |
+|    5 | Temperature anomaly |  **0.34%** |
+
+The analysis indicates that rainfall anomaly, crop failure, and drought severity dominate the model's predictions in the current prototype dataset.
+
+### Category-Level Importance
+
+The model experiment reported approximately:
+
+| Category    | Importance |
+| ----------- | ---------: |
+| Climate     |  **83.5%** |
+| Agriculture |  **16.2%** |
+| Economic    |   **0.4%** |
+
+These values describe **model feature importance**, not causal influence.
+
+Feature importance should therefore be interpreted as:
+
+> "Which variables were most useful to this model when reproducing the risk index?"
+
+rather than:
+
+> "Which variables scientifically cause crises?"
+
+---
+
+# 🔍 SHAP Explainability
+
+SHAP is used to provide a more detailed explanation of model behavior.
+
+The SHAP workflow helps answer:
 
 ```text
-Feature
-   ↓
-Machine Learning Model
-   ↓
-Feature Importance
-   ↓
-Identify Major Risk Drivers
+Why did the model produce this prediction?
 ```
 
-## SHAP
+For an individual observation:
 
-SHAP is used to understand how individual features influence model predictions.
+```text
+Input Features
+      ↓
+Random Forest
+      ↓
+Predicted Risk
+      ↓
+SHAP Values
+      ↓
+Positive / Negative Feature Contributions
+```
 
-### SHAP Summary
+SHAP outputs are available in:
 
-![SHAP Summary](outputs/figures/week4_shap_summary.png)
+```text
+outputs/figures/week4_shap_summary.png
+```
+
+and the related explainability reports are available under:
+
+```text
+outputs/reports/
+```
 
 ---
 
 # 🔮 Forecasting
 
-CrisisLens includes several forecasting approaches.
+CrisisLens includes multiple forecasting approaches.
 
 ## Forecasting Models
 
-* Simple baseline forecasting
-* ARIMA
-* Prophet
+### Persistence / Moving Average
 
-Forecasting horizons include:
+Used as a simple baseline.
 
-* 30 days
-* 60 days
-* 90 days
+### Linear Trend
 
-The project compares forecasting approaches and evaluates predictions against historical observations.
+Used to capture a general upward or downward trajectory.
+
+### ARIMA
+
+The project includes an ARIMA implementation under:
+
+```text
+models/arima_model.py
+```
+
+### Prophet
+
+Prophet is used to model temporal trends and seasonality and provides forecast intervals.
 
 ---
 
-# 🧪 Model Validation & Backtesting
+# 📊 Forecast Comparison
 
-The project includes a dedicated backtesting workflow to evaluate forecasting performance against historical observations.
+The project's model-comparison analysis provides the following approximate performance ranges:
 
-### Important Outputs
+| Model          | Typical MAPE | Seasonality | Confidence Intervals | Complexity |
+| -------------- | -----------: | ----------- | -------------------- | ---------- |
+| Persistence    |       24–28% | No          | No                   | Very Low   |
+| Moving Average |       19–22% | Partial     | No                   | Low        |
+| Linear Trend   |       15–18% | No          | No                   | Low        |
+| Prophet        |       11–14% | Yes         | Yes                  | Medium     |
 
-```text
-outputs/reports/model_comparison.csv
-outputs/reports/forecast_validation_results.csv
-outputs/reports/backtesting_results.csv
-outputs/reports/week4_backtesting_report.txt
-```
-
-### Validation Visualizations
-
-```text
-outputs/figures/forecast_reality_check.png
-outputs/figures/seasonal_validation.png
-outputs/figures/week4_backtesting_validation.png
-```
-
-These outputs help evaluate whether the forecasting models are able to reproduce historical patterns.
+> These are the project's reported/typical comparison ranges rather than independently reproduced benchmark results. They should be treated as prototype evaluation results.
 
 ---
 
-# 🖥️ Project Demo
+# 🧪 Validation & Backtesting
 
-## 🎬 Demo Video
+CrisisLens contains a dedicated backtesting workflow.
 
-### YouTube
-
-Replace `YOUR_VIDEO_ID` with the actual YouTube video ID:
-
-```markdown
-[![CrisisLens Demo](https://img.youtube.com/vi/YOUR_VIDEO_ID/0.jpg)](https://www.youtube.com/watch?v=YOUR_VIDEO_ID)
-```
-
-### GitHub Video
-
-If the demo is uploaded directly to GitHub, add the generated GitHub video asset URL:
+The objective is to simulate how the model would behave when making predictions before a future event.
 
 ```text
-https://github.com/Aishhwaryaa-Shrivastava/CrisisLens/assets/YOUR_VIDEO_ID
+Historical Data
+      ↓
+Training Window
+      ↓
+Prediction Date
+      ↓
+7 / 14 / 30 Day Forecast
+      ↓
+Compare with Later Observation
+      ↓
+Calculate Error
+      ↓
+Repeat
 ```
+
+The project evaluates:
+
+* Mean Absolute Error
+* Percentage error
+* Severity classification
+* Alert decisions
+* Performance by lead time
 
 ---
 
-# 📸 Dashboard Screenshots
+# 📋 Backtesting Results
 
-Create the following directory:
+The current prototype backtesting experiment reports:
 
-```text
-docs/
-└── images/
-```
+| Metric                           |          Result |
+| -------------------------------- | --------------: |
+| Events/scenarios evaluated       |               5 |
+| Lead times                       |  7, 14, 30 days |
+| Average absolute error           | **2.66 points** |
+| Average percentage error         |       **5.37%** |
+| Severity classification accuracy |       **66.7%** |
+| Alert decision accuracy          |       **93.3%** |
 
-Recommended structure:
+Performance by lead time:
 
-```text
-docs/
-└── images/
-    ├── dashboard-overview.png
-    ├── state-risk-analysis.png
-    ├── risk-forecast.png
-    ├── risk-trends.png
-    └── model-explainability.png
-```
+| Lead Time | Average Error | Severity Accuracy |
+| --------: | ------------: | ----------------: |
+|    7 days |      **1.93** |           **80%** |
+|   14 days |      **2.36** |           **60%** |
+|   30 days |      **3.70** |           **60%** |
 
-## Dashboard Overview
+### Important Validation Disclaimer
 
-![CrisisLens Dashboard](docs/images/dashboard-overview.png)
+These backtesting results should be interpreted as **prototype validation results**.
 
-## State Risk Analysis
+The event definitions and validation workflow are implemented within the project code, and the underlying CrisisLens datasets include generated/simulated data. Consequently, these results do not constitute independent operational validation against an official crisis-event database.
 
-![State Risk Analysis](docs/images/state-risk-analysis.png)
-
-## Risk Forecast
-
-![Risk Forecast](docs/images/risk-forecast.png)
-
-## Risk Trends
-
-![Risk Trends](docs/images/risk-trends.png)
-
-## Model Explainability
-
-![Model Explainability](docs/images/model-explainability.png)
+Future work should replace the current event definitions with independently sourced, verified historical disaster and crisis records.
 
 ---
 
-# 📊 Project Outputs & ML Results
+# 📈 Results & Visualizations
 
-Generated figures are stored in:
+Generated analytical outputs are available in:
 
 ```text
 outputs/figures/
 ```
 
----
+Important visualizations include:
 
-## 🌡️ Data Quality Analysis
-
-The data-quality analysis provides an overview of the datasets used by CrisisLens.
-
-### Data Quality Overview
-
-![Data Quality Overview](outputs/figures/week1_data_quality_overview.png)
-
-### 🔥 Top 10 Hottest States
-
-This visualization compares temperature-related conditions across states.
-
-![Top 10 Hottest States](outputs/figures/week1_top_10_hottest_states.png)
-
-### 🌾 Drought vs Crop Failure
-
-This analysis investigates the relationship between drought conditions and agricultural outcomes.
-
-![Drought vs Crop Failure](outputs/figures/week1_drought_vs_crop_failure.png)
-
----
-
-# 📈 Risk Analysis
-
-## Risk Category Distribution
-
-This visualization shows the distribution of regions across different crisis-risk categories.
-
-![Risk Category Distribution](outputs/figures/week2_risk_category_distribution.png)
-
-## Top 10 Risk States
-
-This analysis identifies the highest-risk states according to the calculated risk score.
-
-![Top 10 Risk States](outputs/figures/week2_top10_risk_states.png)
-
-## Risk Correlation Heatmap
-
-The correlation analysis helps identify relationships between different risk indicators.
-
-![Risk Correlation Heatmap](outputs/figures/week2_risk_correlation_heatmap.png)
-
-## Risk Breakdown
-
-This visualization breaks down the contribution of different risk components.
-
-![Risk Breakdown](outputs/figures/week2_risk_breakdown_stacked.png)
-
----
-
-# 📉 Trend Analysis
-
-## Top Risk States Over Time
-
-This visualization tracks how risk changes across the highest-risk states.
-
-![Top Risk States Over Time](outputs/figures/week3_trend_analysis_top_states.png)
-
-## Monthly Risk Change
-
-Monthly changes are analyzed to identify regions experiencing increasing or decreasing risk.
-
-![Monthly Risk Change](outputs/figures/week3_monthly_change_rates.png)
-
-## Component Trends
-
-This visualization compares the evolution of individual risk components over time.
-
-![Component Trends](outputs/figures/week3_component_trends_top5.png)
-
----
-
-# 🔮 Forecasting Results
-
-## Simple Forecast
-
-Baseline forecasting is used as a reference for comparing more advanced forecasting methods.
-
-![Simple Forecast](outputs/figures/week3_simple_forecast_top5.png)
-
-## Prophet Forecast
-
-Prophet is used to model temporal patterns and generate future risk estimates.
-
-![Prophet Forecast](outputs/figures/week3_prophet_forecasts_top5.png)
-
-## Model Comparison
-
-Different forecasting approaches are compared using validation metrics.
-
-![Model Comparison](outputs/figures/week3_model_comparison.png)
-
----
-
-# 🧠 ML Model Explainability
-
-## Feature Importance
-
-Feature importance analysis helps identify which variables contribute most strongly to model predictions.
-
-![Feature Importance](outputs/figures/week4_feature_importance.png)
-
-## SHAP Summary
-
-SHAP analysis provides a more detailed explanation of how individual features influence predictions.
-
-![SHAP Summary](outputs/figures/week4_shap_summary.png)
-
-## Correlation Matrix
-
-The correlation matrix provides an overview of relationships between model features.
-
-![Correlation Matrix](outputs/figures/week4_correlation_matrix.png)
-
----
-
-# 🧪 Forecast Validation
-
-## Forecast vs Reality
-
-Forecast predictions are compared with observed historical values.
-
-![Forecast vs Reality](outputs/figures/forecast_reality_check.png)
-
-## Seasonal Validation
-
-The forecasting pipeline is evaluated against historical seasonal patterns.
-
-![Seasonal Validation](outputs/figures/seasonal_validation.png)
-
-## Backtesting
-
-Backtesting evaluates forecasting performance using historical observations.
-
-![Backtesting Validation](outputs/figures/week4_backtesting_validation.png)
-
----
-
-# 📁 Project Structure
+### Risk Distribution
 
 ```text
-CrisisLens/
-│
-├── data/
-│   ├── raw/
-│   │   ├── agriculture_data_2024.csv
-│   │   ├── climate_data_2024.csv
-│   │   └── economic_data_2024.csv
-│   │
-│   └── processed/
-│       ├── combined_daily_2024_2025.csv
-│       ├── combined_monthly_2024_2025.csv
-│       ├── master_dataset.csv
-│       └── master_dataset_with_risks.csv
-│
-├── models/
-│   └── arima_model.py
-│
-├── notebooks/
-│   ├── 01_data_exploration.ipynb
-│   ├── 02_data_cleaning.ipynb
-│   ├── 03_risk_assessment.ipynb
-│   ├── 04_trend_analysis.ipynb
-│   ├── 05_simple_forecasting.ipynb
-│   ├── 06_prophet_forecasting_FIXED.ipynb
-│   ├── 07_feature_importance_explainability.ipynb
-│   └── 08_backtesting_validation.ipynb
-│
-├── outputs/
-│   ├── figures/
-│   │   ├── week1_data_quality_overview.png
-│   │   ├── week1_top_10_hottest_states.png
-│   │   ├── week1_drought_vs_crop_failure.png
-│   │   ├── week2_risk_category_distribution.png
-│   │   ├── week2_top10_risk_states.png
-│   │   ├── week2_risk_correlation_heatmap.png
-│   │   ├── week2_risk_breakdown_stacked.png
-│   │   ├── week3_trend_analysis_top_states.png
-│   │   ├── week3_component_trends_top5.png
-│   │   ├── week3_monthly_change_rates.png
-│   │   ├── week3_simple_forecast_top5.png
-│   │   ├── week3_prophet_forecasts_top5.png
-│   │   ├── week3_model_comparison.png
-│   │   ├── week4_feature_importance.png
-│   │   ├── week4_shap_summary.png
-│   │   ├── week4_correlation_matrix.png
-│   │   ├── forecast_reality_check.png
-│   │   ├── seasonal_validation.png
-│   │   └── ...
-│   │
-│   └── reports/
-│       ├── risk_assessment_report.txt
-│       ├── feature_importance.csv
-│       ├── model_comparison.csv
-│       ├── forecast_validation_results.csv
-│       ├── prediction_examples.csv
-│       ├── state_risk_summary.csv
-│       ├── high_risk_states.csv
-│       ├── prophet_forecasts_2026.csv
-│       ├── simple_forecasts_2026.csv
-│       ├── backtesting_results.csv
-│       └── week4_backtesting_report.txt
-│
-├── src/
-│   ├── app_dashboard.py
-│   ├── merge_data.py
-│   ├── download_2025_data.py
-│   ├── fix_monthly_data.py
-│   ├── fix_dashboard.py
-│   ├── test_prophet.py
-│   └── 08_backtesting_validation_DEBUG.py
-│
-├── download_data.py
-├── requirements.txt
-├── LICENSE
-└── README.md
+outputs/figures/week2_risk_category_distribution.png
+```
+
+Shows the distribution of regions/observations across risk categories.
+
+### Top Risk States
+
+```text
+outputs/figures/week2_top10_risk_states.png
+```
+
+Ranks regions according to composite risk.
+
+### Risk Breakdown
+
+```text
+outputs/figures/week2_risk_breakdown_stacked.png
+```
+
+Shows climate, agricultural, and economic contributions.
+
+### Risk Correlation
+
+```text
+outputs/figures/week2_risk_correlation_heatmap.png
+```
+
+Shows relationships among the three risk components.
+
+### Trend Analysis
+
+```text
+outputs/figures/week3_trend_analysis_top_states.png
+```
+
+Tracks risk trajectories across high-risk regions.
+
+### Forecasting
+
+```text
+outputs/figures/week3_simple_forecast_top5.png
+outputs/figures/week3_prophet_forecasts_top5.png
+outputs/figures/week3_model_comparison.png
+```
+
+### Explainability
+
+```text
+outputs/figures/week4_feature_importance.png
+outputs/figures/week4_shap_summary.png
+outputs/figures/week4_correlation_matrix.png
+```
+
+### Forecast Validation
+
+```text
+outputs/figures/forecast_reality_check.png
+outputs/figures/seasonal_validation.png
+outputs/week4_backtesting_validation.png
 ```
 
 ---
 
-# 🛠️ Technologies Used
+# 🖥️ Dashboard
 
-| Technology           | Purpose                        |
-| -------------------- | ------------------------------ |
-| **Python**           | Core programming language      |
-| **Pandas**           | Data processing                |
-| **NumPy**            | Numerical computation          |
-| **SciPy**            | Scientific computing           |
-| **Matplotlib**       | Data visualization             |
-| **Seaborn**          | Statistical visualization      |
-| **Plotly**           | Interactive visualization      |
-| **Scikit-learn**     | Machine learning               |
-| **Statsmodels**      | Statistical modeling and ARIMA |
-| **Prophet**          | Time-series forecasting        |
-| **SHAP**             | Model explainability           |
-| **Streamlit**        | Interactive dashboard          |
-| **Jupyter Notebook** | Data science experimentation   |
-| **Power BI**         | Additional reporting           |
+CrisisLens provides an interactive Streamlit dashboard for exploring the analytical results.
+
+The dashboard supports:
+
+* Regional risk overview
+* Risk score visualization
+* Risk category identification
+* Climate stress analysis
+* Agricultural stress analysis
+* Economic stress analysis
+* State/UT comparison
+* Historical risk trends
+* Forecast visualization
+* Forecast comparison
+* Interactive charts
+* Risk-driver interpretation
+
+The dashboard is implemented in:
+
+```text
+src/app_dashboard.py
+```
 
 ---
 
-# ⚙️ Installation
+## 📸 Dashboard Screenshots
+
+Add screenshots to:
+
+```text
+docs/images/
+```
+
+Recommended files:
+
+```text
+docs/images/
+├── dashboard-overview.png
+├── state-risk-analysis.png
+├── risk-forecast.png
+├── risk-trends.png
+└── model-explainability.png
+```
+
+Then embed them in this README:
+
+```markdown
+![CrisisLens Dashboard](docs/images/dashboard-overview.png)
+
+![State Risk Analysis](docs/images/state-risk-analysis.png)
+
+![Risk Forecast](docs/images/risk-forecast.png)
+
+![Model Explainability](docs/images/model-explainability.png)
+```
+
+---
+
+# 📂 Data
+
+## Data Dimensions
+
+CrisisLens works with three primary data domains:
+
+### Climate
+
+```text
+avg_temperature
+total_rainfall_mm
+temp_anomaly_deg
+rainfall_anomaly_pct
+heatwave_days
+drought_severity
+```
+
+### Agriculture
+
+```text
+crop_production_1000t
+irrigation_coverage_pct
+crop_failure_rate_pct
+fertilizer_consumption_kg_per_ha
+land_under_cultivation_1000ha
+```
+
+### Economic
+
+```text
+gdp_estimate_crores
+unemployment_rate_pct
+inflation_rate_pct
+poverty_rate_pct
+per_capita_income_inr
+```
+
+---
+
+# ⚠️ Data Provenance
+
+The current repository is an **academic research prototype**.
+
+The available data-generation pipeline contains simulated/generated values designed to reproduce realistic-looking climate, agricultural, and economic patterns.
+
+For example, the repository contains generators for:
+
+```text
+2024 agricultural data
+2024 climate data
+2024 economic data
+2025 regional data
+```
+
+Therefore:
+
+> **The current results should not be interpreted as official measurements of Indian state-level crisis conditions.**
+
+For an operational system, the project should be connected to independently verified government, scientific, satellite, meteorological, agricultural, and economic datasets.
+
+---
+
+# 📅 Dataset Coverage
+
+The integrated dataset contains approximately:
+
+```text
+36 regions
+2024–2025 monthly observations
+Climate indicators
+Agricultural indicators
+Economic indicators
+Composite risk scores
+```
+
+The merged monthly dataset is:
+
+```text
+data/processed/combined_monthly_2024_2025.csv
+```
+
+The daily integrated dataset is:
+
+```text
+data/processed/combined_daily_2024_2025.csv
+```
+
+---
+
+# 🔄 Data Pipeline
+
+```text
+Raw Data
+   ↓
+Data Cleaning
+   ↓
+Standardization
+   ↓
+Daily Integration
+   ↓
+Monthly Aggregation
+   ↓
+Indicator Normalization
+   ↓
+Category Stress Scores
+   ↓
+Composite Risk Score
+   ↓
+Trend Analysis
+   ↓
+Forecasting
+   ↓
+Machine Learning
+   ↓
+Explainability
+   ↓
+Validation
+   ↓
+Dashboard
+```
+
+---
+
+# ⚡ Quick Start
 
 ## 1. Clone the Repository
 
 ```bash
-git clone https://github.com/Aishhwaryaa-Shrivastava/CrisisLens.git
+git clone <repository-url>
 cd CrisisLens
 ```
 
@@ -551,16 +851,35 @@ source venv/bin/activate
 
 ## 3. Install Dependencies
 
-The `requirements.txt` file is located in the project root:
+The project's dependency file is located at:
 
-```bash
-pip install -r requirements.txt
+```text
+src/requirements.txt
 ```
 
-If the requirements file is unavailable, install the main dependencies manually:
+Install using:
 
 ```bash
-pip install pandas numpy scipy matplotlib seaborn plotly scikit-learn statsmodels prophet shap streamlit jupyter
+pip install -r src/requirements.txt
+```
+
+The main libraries include:
+
+```text
+pandas
+numpy
+scikit-learn
+matplotlib
+seaborn
+plotly
+streamlit
+prophet
+shap
+jupyter
+notebook
+openpyxl
+requests
+tqdm
 ```
 
 ---
@@ -573,145 +892,133 @@ From the project root:
 streamlit run src/app_dashboard.py
 ```
 
-The dashboard should normally be available at:
+Streamlit will provide a local address, normally:
 
 ```text
 http://localhost:8501
 ```
 
-Open the address in your browser.
+Open that address in a browser.
 
 ---
 
-# 🔐 Authentication
+# 🔐 Dashboard Authentication
 
-The current prototype may include demonstration authentication.
+The current dashboard contains a **demonstration authentication mechanism**.
 
-> ⚠️ **Do not commit real passwords, API keys, tokens, or production credentials to GitHub.**
+It is intended only for prototype demonstration.
 
-For production deployment, authentication should use secure mechanisms such as:
+> **Never use the current hard-coded demonstration credentials in production.**
+
+Production deployment should use:
 
 * Password hashing
-* Environment variables or a secrets manager
-* Role-based access control
+* Environment variables
+* Secrets management
 * Secure session management
+* Role-based access control
 * Credential rotation
-
-If a real credential has previously been committed to the repository, it should be revoked or changed immediately.
-
----
-
-# 📊 Data Pipeline
-
-The overall data pipeline is:
-
-```text
-Climate Data
-     │
-     ├─────────────┐
-     │             │
-Agriculture Data  Economic Data
-     │             │
-     └──────┬──────┘
-            ↓
-      Data Cleaning
-            ↓
-      Data Integration
-            ↓
-     Master Dataset
-            ↓
-     Risk Assessment
-            ↓
-   ┌────────┴─────────┐
-   ↓                  ↓
-Trend Analysis    ML Prediction
-   │                  │
-   └────────┬─────────┘
-            ↓
-       Forecasting
-            ↓
-      Model Validation
-            ↓
-      Explainable AI
-            ↓
-   Streamlit Dashboard
-```
+* Multi-factor authentication where appropriate
 
 ---
 
-# 📚 Notebook Workflow
+# 🧪 Running the Analytical Workflow
 
-The notebooks are designed to follow the analytical pipeline.
+The notebooks are organized according to the project lifecycle.
 
-### 01 — Data Exploration
-
-```text
-notebooks/01_data_exploration.ipynb
-```
-
-Explores the raw datasets and their distributions.
-
-### 02 — Data Cleaning
-
-```text
-notebooks/02_data_cleaning.ipynb
-```
-
-Cleans and prepares the datasets.
-
-### 03 — Risk Assessment
-
-```text
-notebooks/03_risk_assessment.ipynb
-```
-
-Calculates regional risk scores.
-
-### 04 — Trend Analysis
-
-```text
-notebooks/04_trend_analysis.ipynb
-```
-
-Analyzes historical risk trends.
-
-### 05 — Simple Forecasting
-
-```text
-notebooks/05_simple_forecasting.ipynb
-```
-
-Creates baseline forecasts.
-
-### 06 — Prophet Forecasting
-
-```text
-notebooks/06_prophet_forecasting_FIXED.ipynb
-```
-
-Generates Prophet-based forecasts.
-
-### 07 — Explainability
-
-```text
-notebooks/07_feature_importance_explainability.ipynb
-```
-
-Performs feature importance and SHAP analysis.
-
-### 08 — Backtesting
-
-```text
-notebooks/08_backtesting_validation.ipynb
-```
-
-Evaluates forecasting performance.
+| Notebook                                     | Purpose                   |
+| -------------------------------------------- | ------------------------- |
+| `01_data_exploration.ipynb`                  | Explore raw data          |
+| `02_data_cleaning.ipynb`                     | Clean and prepare data    |
+| `03_risk_assessment.ipynb`                   | Calculate risk components |
+| `04_trend_analysis.ipynb`                    | Analyze historical trends |
+| `05_simple_forecasting.ipynb`                | Baseline forecasting      |
+| `06_prophet_forecasting_FIXED.ipynb`         | Prophet forecasting       |
+| `07_feature_importance_explainability.ipynb` | Random Forest + SHAP      |
+| `08_backtesting_validation.ipynb`            | Forecast validation       |
 
 ---
 
-# 📦 Important Output Files
+# 📁 Project Structure
 
-## Risk Analysis
+```text
+CrisisLens/
+│
+├── data/
+│   ├── raw/
+│   │   ├── agriculture_data_2024.csv
+│   │   ├── climate_data_2024.csv
+│   │   └── economic_data_2024.csv
+│   │
+│   └── processed/
+│       ├── combined_daily_2024_2025.csv
+│       ├── combined_monthly_2024_2025.csv
+│       ├── combined_monthly_2024_2025_FIXED.csv
+│       ├── master_dataset.csv
+│       └── master_dataset_with_risks.csv
+│
+├── models/
+│   └── arima_model.py
+│
+├── notebooks/
+│   ├── 01_data_exploration.ipynb
+│   ├── 02_data_cleaning.ipynb
+│   ├── 03_risk_assessment.ipynb
+│   ├── 04_trend_analysis.ipynb
+│   ├── 05_simple_forecasting.ipynb
+│   ├── 06_prophet_forecasting_FIXED.ipynb
+│   ├── 07_feature_importance_explainability.ipynb
+│   └── 08_backtesting_validation.ipynb
+│
+├── outputs/
+│   ├── figures/
+│   ├── reports/
+│   ├── backtesting_results.csv
+│   ├── week4_backtesting_report.txt
+│   └── week4_backtesting_validation.png
+│
+├── src/
+│   ├── app_dashboard.py
+│   ├── download_2025_data.py
+│   ├── merge_data.py
+│   ├── fix_dashboard.py
+│   ├── fix_monthly_data.py
+│   ├── test_prophet.py
+│   └── requirements.txt
+│
+├── download_data.py
+├── LICENSE
+└── README.md
+```
+
+> Development/debugging files and Jupyter checkpoint directories may be removed from the final submission repository for a cleaner academic presentation.
+
+---
+
+# 🛠️ Technology Stack
+
+| Technology           | Purpose                      |
+| -------------------- | ---------------------------- |
+| **Python**           | Core development             |
+| **Pandas**           | Data manipulation            |
+| **NumPy**            | Numerical computation        |
+| **SciPy**            | Scientific computation       |
+| **Matplotlib**       | Visualization                |
+| **Seaborn**          | Statistical visualization    |
+| **Plotly**           | Interactive visualization    |
+| **Scikit-learn**     | Machine learning             |
+| **Statsmodels**      | Statistical modeling / ARIMA |
+| **Prophet**          | Time-series forecasting      |
+| **SHAP**             | Explainable AI               |
+| **Streamlit**        | Interactive dashboard        |
+| **Jupyter Notebook** | Experimentation and analysis |
+| **Power BI**         | Additional reporting         |
+
+---
+
+# 📊 Project Outputs
+
+## Risk Assessment
 
 ```text
 outputs/reports/risk_assessment_report.txt
@@ -725,6 +1032,7 @@ outputs/reports/high_risk_states.csv
 outputs/reports/simple_forecasts_2026.csv
 outputs/reports/prophet_forecasts_2026.csv
 outputs/reports/model_comparison.csv
+outputs/reports/forecast_validation_results.csv
 ```
 
 ## Machine Learning
@@ -737,111 +1045,214 @@ outputs/reports/prediction_examples.csv
 ## Validation
 
 ```text
-outputs/reports/forecast_validation_results.csv
-outputs/reports/backtesting_results.csv
-outputs/reports/week4_backtesting_report.txt
+outputs/backtesting_results.csv
+outputs/week4_backtesting_report.txt
+```
+
+---
+
+# 📌 Key Findings from the Current Prototype
+
+The current experiments demonstrate several observations.
+
+### 1. Climate indicators dominate the current ML experiment
+
+Rainfall anomaly is the most important feature in the Random Forest experiment, followed by:
+
+```text
+Rainfall anomaly
+      ↓
+Crop failure
+      ↓
+Drought severity
+```
+
+This is consistent with the project's intended climate–agriculture interaction.
+
+### 2. The risk model is multi-dimensional
+
+The system does not rely on climate indicators alone.
+
+The final risk framework incorporates:
+
+```text
+Climate
++
+Agriculture
++
+Economy
+```
+
+### 3. Forecast uncertainty increases with prediction horizon
+
+The backtesting experiment shows larger average errors at longer lead times:
+
+```text
+7 days   → 1.93 points
+14 days  → 2.36 points
+30 days  → 3.70 points
+```
+
+This demonstrates why longer-horizon forecasts should be interpreted with greater uncertainty.
+
+### 4. Explainability is integrated into the workflow
+
+CrisisLens does not only generate a risk score.
+
+It also investigates:
+
+```text
+Which features influence the model?
+Which category dominates?
+Why did a particular prediction occur?
 ```
 
 ---
 
 # ⚠️ Limitations
 
-CrisisLens is currently a **research/prototype system**.
+CrisisLens is currently an **academic/research prototype** and has important limitations.
 
-Important limitations include:
+## 1. Simulated Data
 
-* The current data-generation pipeline includes simulated data.
-* Forecast accuracy depends on the quality and amount of historical data.
-* Models require additional validation using independent real-world datasets.
-* Risk-weight methodology should be empirically validated and standardized.
-* The current dashboard authentication is designed for demonstration.
-* Predictions should be treated as analytical estimates rather than guaranteed outcomes.
-* The system is not intended to replace official emergency-management or government early-warning systems.
+The current data-generation pipeline contains simulated values.
 
-For real-world deployment, the system should use verified data sources and undergo extensive validation against historical crisis events.
+Consequently, the model's performance cannot be treated as evidence of real-world operational accuracy.
+
+## 2. Risk Weights Are Prototype Assumptions
+
+The current weighting scheme:
+
+```text
+Climate       40%
+Agriculture   35%
+Economic      25%
+```
+
+is a methodological prototype and requires validation against independently observed outcomes.
+
+## 3. Risk Categories Are Heuristic
+
+The thresholds:
+
+```text
+0–30       Low
+30–50      Medium
+50–70      High
+70–100     Critical
+```
+
+should be calibrated using historical crisis outcomes before operational use.
+
+## 4. ML Target Construction
+
+The current Random Forest model predicts the constructed `total_risk` index.
+
+Because the target is derived from the same underlying indicators used as model inputs, the very high R² should not be interpreted as evidence that the model can independently predict real-world crisis events.
+
+## 5. Limited Historical Coverage
+
+The current integrated dataset provides a relatively short historical period.
+
+Longer historical datasets would improve:
+
+* Seasonal modeling
+* Trend detection
+* Forecast validation
+* Extreme-event analysis
+
+## 6. Event Validation
+
+The current backtesting workflow uses a limited number of predefined event scenarios.
+
+A stronger evaluation would use a large, independently verified historical crisis-event dataset.
+
+## 7. State-Level Aggregation
+
+State-level analysis can hide important local variation.
+
+District-level and sub-district-level modeling would provide more detailed risk information.
+
+## 8. Correlation Is Not Causation
+
+Feature importance and SHAP explain model behavior.
+
+They do not establish causal relationships between indicators and crisis events.
 
 ---
 
-# 🔮 Future Improvements
+# 🔮 Future Work
 
-* [ ] Integrate live government/open-data sources
-* [ ] Add automated data ingestion
-* [ ] Add district-level risk analysis
-* [ ] Improve forecast uncertainty estimation
-* [ ] Add real-time crisis alerts
+The following improvements are planned for future versions.
+
+### Data
+
+* [ ] Integrate verified government datasets
+* [ ] Integrate meteorological observations
+* [ ] Integrate satellite-derived indicators
+* [ ] Integrate agricultural statistics
+* [ ] Integrate socioeconomic datasets
+* [ ] Automate data ingestion
+* [ ] Improve data-quality monitoring
+
+### Risk Modeling
+
+* [ ] Empirically calibrate category weights
+* [ ] Calibrate risk thresholds against historical events
+* [ ] Add district-level risk assessment
+* [ ] Add uncertainty estimation
+* [ ] Develop probabilistic risk scores
+
+### Machine Learning
+
+* [ ] Add Gradient Boosting
+* [ ] Add XGBoost/LightGBM
+* [ ] Compare multiple ML algorithms
+* [ ] Introduce temporal validation
+* [ ] Introduce independently observed crisis labels
+* [ ] Develop true crisis-event classification models
+
+### Forecasting
+
+* [ ] Improve ARIMA tuning
+* [ ] Improve Prophet tuning
+* [ ] Add probabilistic forecasting
+* [ ] Add confidence/credible intervals
+* [ ] Add longer forecast horizons
+* [ ] Compare against stronger time-series baselines
+
+### Explainable AI
+
+* [ ] Improve local SHAP explanations
+* [ ] Add dashboard-level explanations
+* [ ] Add feature-interaction analysis
+* [ ] Distinguish predictive importance from causal interpretation
+
+### Deployment
+
+* [ ] Replace demonstration authentication
+* [ ] Add secure secrets management
+* [ ] Add role-based access control
 * [ ] Add automated model retraining
-* [ ] Improve authentication and authorization
 * [ ] Add CI/CD
 * [ ] Add unit and integration tests
-* [ ] Deploy dashboard to the cloud
-* [ ] Add additional ML models
-* [ ] Add probabilistic forecasting
-* [ ] Add real-world historical crisis-event validation
+* [ ] Containerize the application
+* [ ] Deploy the dashboard to a cloud platform
 
 ---
 
-# 🤝 Contributing
+# 🎓 Academic Significance
 
-Contributions are welcome!
-
-## 1. Fork the Repository
-
-Use GitHub's **Fork** button to create your own copy of the repository.
-
-Then clone your fork:
-
-```bash
-git clone https://github.com/YOUR_USERNAME/CrisisLens.git
-cd CrisisLens
-```
-
-## 2. Create a Feature Branch
-
-```bash
-git checkout -b feature/your-feature
-```
-
-## 3. Make Your Changes
-
-Implement and test your changes.
-
-## 4. Commit
-
-```bash
-git add .
-git commit -m "Add new feature"
-```
-
-## 5. Push
-
-```bash
-git push origin feature/your-feature
-```
-
-## 6. Open a Pull Request
-
-Open a pull request on GitHub and describe the changes you made.
-
----
-
-# 📜 License
-
-CrisisLens is licensed under the **MIT License**.
-
-You are free to use, modify, distribute, and sublicense this project, subject to the terms of the MIT License.
-
-See the [LICENSE](LICENSE) file for the complete license text.
-
----
-
-# 👨‍💻 Project Summary
-
-**CrisisLens** combines:
+CrisisLens demonstrates the integration of several data-science disciplines within a single analytical system:
 
 ```text
 Data Engineering
        +
-Data Science
+Exploratory Data Analysis
+       +
+Feature Engineering
+       +
+Risk Modeling
        +
 Machine Learning
        +
@@ -849,26 +1260,176 @@ Time-Series Forecasting
        +
 Explainable AI
        +
-Interactive Visualization
-       =
-Crisis Intelligence Platform
+Data Visualization
+       +
+Interactive Application Development
 ```
 
-The project demonstrates how multi-dimensional environmental, agricultural, and economic data can be combined with machine learning and forecasting techniques to build an analytical crisis-monitoring system.
+The project therefore serves as a practical example of how heterogeneous datasets can be transformed into a unified analytical decision-support framework.
 
 ---
 
-# ⭐ If You Find This Project Useful
+# 🔬 Research Contribution
 
-If you find CrisisLens useful:
+The primary contribution of CrisisLens is the design of a **multi-factor regional risk framework** that combines:
 
-* ⭐ Star the repository
-* 🍴 Fork the project
-* 🐛 Report issues
-* 💡 Suggest improvements
-* 🤝 Contribute
+1. Climate stress
+2. Agricultural stress
+3. Economic vulnerability
+4. Composite risk scoring
+5. Temporal forecasting
+6. Machine-learning-based risk modeling
+7. Explainable AI
+8. Backtesting and validation
+9. Interactive visualization
+
+The framework can be extended with verified real-world data and historical crisis labels for more rigorous research.
 
 ---
+
+# 📚 References
+
+The implementation makes use of established methodologies and software libraries including:
+
+* Random Forest regression
+* SHAP explainability
+* ARIMA time-series modeling
+* Prophet forecasting
+* Min-Max normalization
+* Time-series backtesting
+* Interactive visualization with Plotly and Streamlit
+
+For an academic submission, the final project report should provide formal citations for:
+
+* Random Forest methodology
+* SHAP
+* Prophet
+* ARIMA
+* The datasets used
+* Any government or scientific data sources added in future versions
+
+---
+
+# 🤝 Contributing
+
+Contributions are welcome.
+
+### 1. Fork the repository
+
+Create a personal copy of the project.
+
+### 2. Create a feature branch
+
+```bash
+git checkout -b feature/your-feature
+```
+
+### 3. Implement and test your changes
+
+Ensure that the dashboard and analytical workflow continue to function correctly.
+
+### 4. Commit your changes
+
+```bash
+git add .
+git commit -m "Add new feature"
+```
+
+### 5. Push the branch
+
+```bash
+git push origin feature/your-feature
+```
+
+### 6. Submit a Pull Request
+
+Describe:
+
+* What was changed
+* Why it was changed
+* How it was tested
+* Any limitations introduced
+
+---
+
+# 📜 License
+
+CrisisLens is released under the **MIT License**.
+
+See the `LICENSE` file for the complete license terms.
+
+---
+
+# 📬 Contact
+
+**Project:** CrisisLens
+
+**Repository:** CrisisLens
+
+For questions, suggestions, academic discussion, or collaboration, please open an issue or submit a pull request.
+
+---
+
+# ⭐ Project Summary
+
+CrisisLens demonstrates how environmental, agricultural, and economic indicators can be integrated into a unified regional risk-analysis pipeline.
+
+The complete workflow is:
+
+```text
+              DATA
+               │
+      ┌────────┼────────┐
+      ▼        ▼        ▼
+   Climate  Agriculture Economy
+      │        │        │
+      └────────┼────────┘
+               ▼
+       Data Integration
+               │
+               ▼
+       Risk Score Engine
+               │
+       ┌───────┼────────┐
+       ▼       ▼        ▼
+     Trends  Forecast   ML
+                       │
+                       ▼
+                     SHAP
+                       │
+       ┌───────────────┘
+       ▼
+   Validation
+       │
+       ▼
+   Dashboard
+```
+
+### CrisisLens
+
+> **From multi-source data to interpretable regional crisis intelligence.**
+
+---
+
+## ⚠️ Academic Prototype Disclaimer
+
+CrisisLens is a **research and academic prototype**.
+
+Its current datasets include simulated/generated data, and its risk scores and forecasts are analytical estimates rather than official warnings.
+
+The system must **not** be used as a substitute for government disaster-management systems, meteorological warnings, agricultural advisories, emergency services, or official early-warning mechanisms.
+
+Before operational deployment, the framework requires:
+
+* Verified real-world data
+* Independent historical crisis labels
+* Rigorous temporal validation
+* Empirical calibration of risk weights
+* Uncertainty estimation
+* Independent model evaluation
+* Security and reliability testing
+* Domain-expert review
+
 
 # 📬 Contact
 
