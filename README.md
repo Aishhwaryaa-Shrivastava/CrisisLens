@@ -210,21 +210,11 @@ These outputs help evaluate whether the forecasting models are able to reproduce
 
 ## 🎬 Demo Video
 
-Add your project demonstration video here.
-
 ### Option 1 — YouTube
 
 ```markdown
 [![CrisisLens Demo](https://img.youtube.com/vi/YOUR_VIDEO_ID/0.jpg)](https://www.youtube.com/watch?v=YOUR_VIDEO_ID)
 ```
-
-Replace:
-
-```text
-YOUR_VIDEO_ID
-```
-
-with the ID of your YouTube video.
 
 ### Option 2 — GitHub Video
 
@@ -238,9 +228,7 @@ Example:
 https://github.com/YOUR_USERNAME/CrisisLens/assets/YOUR_VIDEO_ID
 ```
 
-> **Recommended:** Upload the demo video to GitHub Releases, GitHub Assets, or YouTube rather than committing a large `.mp4` file directly into the repository.
 
----
 
 # 📸 Dashboard Screenshots
 
@@ -857,7 +845,6 @@ git push origin feature/your-feature
 
 ---
 
-# 📜 License
 
 ## 📜 License
 
