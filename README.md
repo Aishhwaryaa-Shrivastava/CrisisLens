@@ -1,6 +1,7 @@
 # 🌍 CrisisLens
 
-### Multi-Factor Crisis Risk Assessment and Forecasting for India
+## Multi-Factor Crisis Risk Assessment and Forecasting for India
+
 
 ![Python](https://img.shields.io/badge/Python-3.10%2B-blue)
 ![Streamlit](https://img.shields.io/badge/Streamlit-Dashboard-red)
@@ -11,8 +12,7 @@
 ![Status](https://img.shields.io/badge/Status-Research%20Prototype-orange)
 ![CrisisLens Dashboard](docs/images/hero-dashboard.png)
 
-
-**CrisisLens** is a research-oriented crisis intelligence platform that combines **climate, agricultural, and economic indicators** to estimate regional stress, analyze historical risk patterns, forecast future risk, and provide interpretable machine-learning insights through an interactive dashboard.
+CrisisLens is a research-oriented crisis intelligence platform that combines **climate, agricultural, and economic indicators** to estimate regional stress, analyze historical risk patterns, forecast future risk, and provide interpretable machine-learning insights through an interactive dashboard.
 
 > **Project Status:** Research / Academic Prototype
 > **Scope:** India — 36 regions comprising 28 States and 8 Union Territories
@@ -21,7 +21,7 @@
 
 ---
 
-## 📌 Overview
+# 📌 Overview
 
 Crisis situations are rarely caused by a single factor. Environmental stress can affect agricultural productivity, agricultural losses can increase economic pressure, and economic vulnerability can reduce the ability of communities to absorb shocks.
 
@@ -135,7 +135,7 @@ The economic component incorporates:
 
 The project includes:
 
-* Moving-average forecasting
+* Persistence / moving-average forecasting
 * Linear-trend forecasting
 * ARIMA implementation
 * Prophet forecasting
@@ -338,7 +338,141 @@ The Streamlit dashboard uses the following thresholds:
 | `50 – <70` | 🟠 High     |
 |     `≥ 70` | 🔴 Critical |
 
-These thresholds are **prototype/heuristic thresholds** and should be calibrated against independently verified historical crisis outcomes before operational deployment.
+> These thresholds are **prototype/heuristic thresholds** and should be calibrated against independently verified historical crisis outcomes before operational deployment.
+
+---
+
+# 📈 Results
+
+CrisisLens produces analytical outputs covering regional risk, risk drivers, temporal trends, forecasting, explainability, and forecast validation.
+
+All generated analytical figures are available in:
+
+```text
+outputs/figures/
+```
+
+The README references these figures directly rather than duplicating them into `docs/images/`.
+
+---
+
+## 📊 Risk Category Distribution
+
+The composite risk framework categorizes observations into Low, Medium, High, and Critical risk levels.
+
+![Risk Category Distribution](outputs/figures/week2_risk_category_distribution.png)
+
+---
+
+## 🔝 Top Risk States
+
+The top-risk analysis ranks regions according to their calculated composite risk score.
+
+![Top Risk States](outputs/figures/week2_top10_risk_states.png)
+
+---
+
+## 🧩 Risk Component Breakdown
+
+The risk breakdown illustrates the contribution of climate, agricultural, and economic components to the overall risk score.
+
+![Risk Breakdown](outputs/figures/week2_risk_breakdown_stacked.png)
+
+---
+
+## 🔗 Risk Correlation
+
+The correlation analysis examines relationships among the major risk components.
+
+![Risk Correlation](outputs/figures/week2_risk_correlation_heatmap.png)
+
+---
+
+## 📈 Historical Risk Trends
+
+Trend analysis tracks how risk changes across high-risk regions over time.
+
+![Risk Trends](outputs/figures/week3_trend_analysis_top_states.png)
+
+---
+
+# 🌦️ Climate and Agricultural Analysis
+
+The project also investigates relationships between climate conditions and agricultural stress.
+
+One of the key exploratory analyses examines drought severity in relation to crop failure.
+
+![Drought vs Crop Failure](outputs/figures/week1_drought_vs_crop_failure.png)
+
+This analysis supports the broader conceptual relationship:
+
+```text
+Climate Stress
+      ↓
+Drought / Rainfall Stress
+      ↓
+Agricultural Stress
+      ↓
+Crop Failure
+      ↓
+Increased Regional Risk
+```
+
+Additional exploratory figures remain available in:
+
+```text
+outputs/figures/
+```
+
+including:
+
+```text
+week1_data_quality_overview.png
+week1_top_10_hottest_states.png
+```
+
+These are retained as supporting project outputs rather than being placed prominently in the main README.
+
+---
+
+# 🔮 Forecasting
+
+CrisisLens evaluates multiple forecasting approaches, including:
+
+* Persistence
+* Moving average
+* Linear trend
+* ARIMA
+* Prophet
+
+The objective is to estimate future regional risk while comparing different forecasting strategies.
+
+---
+
+## Prophet Forecast
+
+Prophet is used to model temporal trends and seasonality and provides forecast intervals.
+
+![Prophet Forecast](outputs/figures/week3_prophet_forecasts_top5.png)
+
+---
+
+## Forecast Model Comparison
+
+Different forecasting approaches are compared using forecast evaluation metrics.
+
+![Forecast Model Comparison](outputs/figures/week3_model_comparison.png)
+
+The project's reported prototype comparison is:
+
+| Model          | Typical MAPE | Seasonality | Confidence Intervals | Complexity |
+| -------------- | -----------: | ----------- | -------------------- | ---------- |
+| Persistence    |       24–28% | No          | No                   | Very Low   |
+| Moving Average |       19–22% | Partial     | No                   | Low        |
+| Linear Trend   |       15–18% | No          | No                   | Low        |
+| Prophet        |       11–14% | Yes         | Yes                  | Medium     |
+
+> These are the project's reported/typical comparison ranges rather than independently reproduced benchmark results. They should be treated as prototype evaluation results.
 
 ---
 
@@ -370,20 +504,18 @@ Therefore:
 
 > The Random Forest experiment demonstrates nonlinear prediction and explainability of the constructed risk index. It should not be interpreted as an independently validated model of real-world crisis occurrence.
 
-A future version of CrisisLens should introduce independently observed crisis-event labels to evaluate genuine event prediction.
-
 ---
 
-# 📈 Machine Learning Results
+# 📊 Machine Learning Results
 
 The current Random Forest experiment produced:
 
 | Metric           |               Result |
 | ---------------- | -------------------: |
-| Records          |                  864 |
-| Features         |                   16 |
-| Training samples |                  691 |
-| Test samples     |                  173 |
+| Records          |              **864** |
+| Features         |               **16** |
+| Training samples |              **691** |
+| Test samples     |              **173** |
 | Test R²          |            **0.996** |
 | Test MAE         | **0.64 risk points** |
 
@@ -393,11 +525,13 @@ The high R² should be interpreted carefully because the target variable is a de
 
 # 🧠 Explainable AI
 
-CrisisLens uses two complementary approaches.
+CrisisLens incorporates feature-importance analysis and SHAP to investigate which variables contribute most strongly to machine-learning predictions.
+
+---
 
 ## Feature Importance
 
-The Random Forest feature-importance analysis identified the following leading variables:
+The current Random Forest experiment identified the following leading variables:
 
 | Rank | Feature             | Importance |
 | ---: | ------------------- | ---------: |
@@ -407,9 +541,15 @@ The Random Forest feature-importance analysis identified the following leading v
 |    4 | Crop production     |  **1.47%** |
 |    5 | Temperature anomaly |  **0.34%** |
 
-The analysis indicates that rainfall anomaly, crop failure, and drought severity dominate the model's predictions in the current prototype dataset.
+![Feature Importance](outputs/figures/week4_feature_importance.png)
 
-### Category-Level Importance
+The current experiment indicates that rainfall anomaly, crop failure, and drought severity dominate the model's predictions.
+
+These values describe **model feature importance**, not causal influence.
+
+---
+
+## Category-Level Feature Importance
 
 The model experiment reported approximately:
 
@@ -419,21 +559,21 @@ The model experiment reported approximately:
 | Agriculture |  **16.2%** |
 | Economic    |   **0.4%** |
 
-These values describe **model feature importance**, not causal influence.
+These values describe **model feature importance**, not scientific causal influence.
 
-Feature importance should therefore be interpreted as:
+They should therefore be interpreted as:
 
-> "Which variables were most useful to this model when reproducing the risk index?"
+> Which variables were most useful to this model when reproducing the constructed risk index?
 
 rather than:
 
-> "Which variables scientifically cause crises?"
+> Which variables scientifically cause crises?
 
 ---
 
-# 🔍 SHAP Explainability
+## SHAP Analysis
 
-SHAP is used to provide a more detailed explanation of model behavior.
+SHAP provides a more detailed view of how individual features influence model predictions.
 
 The SHAP workflow helps answer:
 
@@ -441,7 +581,7 @@ The SHAP workflow helps answer:
 Why did the model produce this prediction?
 ```
 
-For an individual observation:
+The analysis follows:
 
 ```text
 Input Features
@@ -455,13 +595,9 @@ SHAP Values
 Positive / Negative Feature Contributions
 ```
 
-SHAP outputs are available in:
+![SHAP Summary](outputs/figures/week4_shap_summary.png)
 
-```text
-outputs/figures/week4_shap_summary.png
-```
-
-and the related explainability reports are available under:
+The generated SHAP analysis is also available through:
 
 ```text
 outputs/reports/
@@ -469,54 +605,15 @@ outputs/reports/
 
 ---
 
-# 🔮 Forecasting
-
-CrisisLens includes multiple forecasting approaches.
-
-## Forecasting Models
-
-### Persistence / Moving Average
-
-Used as a simple baseline.
-
-### Linear Trend
-
-Used to capture a general upward or downward trajectory.
-
-### ARIMA
-
-The project includes an ARIMA implementation under:
-
-```text
-models/arima_model.py
-```
-
-### Prophet
-
-Prophet is used to model temporal trends and seasonality and provides forecast intervals.
-
----
-
-# 📊 Forecast Comparison
-
-The project's model-comparison analysis provides the following approximate performance ranges:
-
-| Model          | Typical MAPE | Seasonality | Confidence Intervals | Complexity |
-| -------------- | -----------: | ----------- | -------------------- | ---------- |
-| Persistence    |       24–28% | No          | No                   | Very Low   |
-| Moving Average |       19–22% | Partial     | No                   | Low        |
-| Linear Trend   |       15–18% | No          | No                   | Low        |
-| Prophet        |       11–14% | Yes         | Yes                  | Medium     |
-
-> These are the project's reported/typical comparison ranges rather than independently reproduced benchmark results. They should be treated as prototype evaluation results.
-
----
-
 # 🧪 Validation & Backtesting
 
-CrisisLens contains a dedicated backtesting workflow.
+CrisisLens includes a time-based backtesting workflow that evaluates forecasts at:
 
-The objective is to simulate how the model would behave when making predictions before a future event.
+* 7-day lead time
+* 14-day lead time
+* 30-day lead time
+
+The workflow simulates how the system would behave when making predictions before a future observation.
 
 ```text
 Historical Data
@@ -534,7 +631,7 @@ Calculate Error
 Repeat
 ```
 
-The project evaluates:
+The validation workflow evaluates:
 
 * Mean Absolute Error
 * Percentage error
@@ -544,20 +641,38 @@ The project evaluates:
 
 ---
 
-# 📋 Backtesting Results
+## Forecast vs Reality
+
+![Forecast Reality Check](outputs/figures/forecast_reality_check.png)
+
+---
+
+## Seasonal Validation
+
+![Seasonal Validation](outputs/figures/seasonal_validation.png)
+
+---
+
+## Backtesting Validation
+
+![Backtesting Validation](outputs/week4_backtesting_validation.png)
+
+---
+
+## Backtesting Summary
 
 The current prototype backtesting experiment reports:
 
-| Metric                           |          Result |
-| -------------------------------- | --------------: |
-| Events/scenarios evaluated       |               5 |
-| Lead times                       |  7, 14, 30 days |
-| Average absolute error           | **2.66 points** |
-| Average percentage error         |       **5.37%** |
-| Severity classification accuracy |       **66.7%** |
-| Alert decision accuracy          |       **93.3%** |
+| Metric                           |             Result |
+| -------------------------------- | -----------------: |
+| Scenarios evaluated              |              **5** |
+| Lead times                       | **7, 14, 30 days** |
+| Average absolute error           |    **2.66 points** |
+| Average percentage error         |          **5.37%** |
+| Severity classification accuracy |          **66.7%** |
+| Alert decision accuracy          |          **93.3%** |
 
-Performance by lead time:
+### Performance by Lead Time
 
 | Lead Time | Average Error | Severity Accuracy |
 | --------: | ------------: | ----------------: |
@@ -565,89 +680,39 @@ Performance by lead time:
 |   14 days |      **2.36** |           **60%** |
 |   30 days |      **3.70** |           **60%** |
 
-### Important Validation Disclaimer
+The results show increasing average forecast error at longer prediction horizons.
 
-These backtesting results should be interpreted as **prototype validation results**.
-
-The event definitions and validation workflow are implemented within the project code, and the underlying CrisisLens datasets include generated/simulated data. Consequently, these results do not constitute independent operational validation against an official crisis-event database.
-
-Future work should replace the current event definitions with independently sourced, verified historical disaster and crisis records.
+> These are **prototype validation results**. They should not be interpreted as independent operational validation because the underlying project datasets include generated/simulated data and the current event definitions are limited.
 
 ---
 
-# 📈 Results & Visualizations
+# 📋 Validation Interpretation
 
-Generated analytical outputs are available in:
-
-```text
-outputs/figures/
-```
-
-Important visualizations include:
-
-### Risk Distribution
+The backtesting results demonstrate the intended validation workflow:
 
 ```text
-outputs/figures/week2_risk_category_distribution.png
+Short Horizon
+     │
+     ▼
+Lower Forecast Error
+     │
+     ▼
+Higher Severity Accuracy
 ```
 
-Shows the distribution of regions/observations across risk categories.
-
-### Top Risk States
+while:
 
 ```text
-outputs/figures/week2_top10_risk_states.png
+Longer Horizon
+     │
+     ▼
+Greater Forecast Uncertainty
+     │
+     ▼
+Higher Prediction Error
 ```
 
-Ranks regions according to composite risk.
-
-### Risk Breakdown
-
-```text
-outputs/figures/week2_risk_breakdown_stacked.png
-```
-
-Shows climate, agricultural, and economic contributions.
-
-### Risk Correlation
-
-```text
-outputs/figures/week2_risk_correlation_heatmap.png
-```
-
-Shows relationships among the three risk components.
-
-### Trend Analysis
-
-```text
-outputs/figures/week3_trend_analysis_top_states.png
-```
-
-Tracks risk trajectories across high-risk regions.
-
-### Forecasting
-
-```text
-outputs/figures/week3_simple_forecast_top5.png
-outputs/figures/week3_prophet_forecasts_top5.png
-outputs/figures/week3_model_comparison.png
-```
-
-### Explainability
-
-```text
-outputs/figures/week4_feature_importance.png
-outputs/figures/week4_shap_summary.png
-outputs/figures/week4_correlation_matrix.png
-```
-
-### Forecast Validation
-
-```text
-outputs/figures/forecast_reality_check.png
-outputs/figures/seasonal_validation.png
-outputs/week4_backtesting_validation.png
-```
+The results therefore demonstrate the importance of considering forecast horizon when interpreting crisis-risk predictions.
 
 ---
 
@@ -678,15 +743,15 @@ src/app_dashboard.py
 
 ---
 
-## 📸 Dashboard Screenshots
+# 📸 Dashboard Screenshots
 
-Add screenshots to:
+If screenshots of the actual Streamlit application are later added, they can be stored in:
 
 ```text
 docs/images/
 ```
 
-Recommended files:
+Recommended screenshots:
 
 ```text
 docs/images/
@@ -697,7 +762,7 @@ docs/images/
 └── model-explainability.png
 ```
 
-Then embed them in this README:
+They can then be embedded using:
 
 ```markdown
 ![CrisisLens Dashboard](docs/images/dashboard-overview.png)
@@ -709,13 +774,15 @@ Then embed them in this README:
 ![Model Explainability](docs/images/model-explainability.png)
 ```
 
+> These screenshots are optional. The analytical result figures already exist under `outputs/figures/` and are directly referenced by this README.
+
 ---
 
 # 📂 Data
 
 ## Data Dimensions
 
-CrisisLens works with three primary data domains:
+CrisisLens works with three primary data domains.
 
 ### Climate
 
@@ -834,12 +901,32 @@ Dashboard
 
 ---
 
+# 🔐 Dashboard Authentication
+
+The current dashboard contains a **demonstration authentication mechanism**.
+
+It is intended only for prototype demonstration.
+
+> **Never use the current hard-coded demonstration credentials in production.**
+
+Production deployment should use:
+
+* Password hashing
+* Environment variables
+* Secrets management
+* Secure session management
+* Role-based access control
+* Credential rotation
+* Multi-factor authentication where appropriate
+
+---
+
 # ⚡ Quick Start
 
 ## 1. Clone the Repository
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/Aishhwaryaa-Shrivastava/CrisisLens.git
 cd CrisisLens
 ```
 
@@ -912,26 +999,6 @@ Open that address in a browser.
 
 ---
 
-# 🔐 Dashboard Authentication
-
-The current dashboard contains a **demonstration authentication mechanism**.
-
-It is intended only for prototype demonstration.
-
-> **Never use the current hard-coded demonstration credentials in production.**
-
-Production deployment should use:
-
-* Password hashing
-* Environment variables
-* Secrets management
-* Secure session management
-* Role-based access control
-* Credential rotation
-* Multi-factor authentication where appropriate
-
----
-
 # 🧪 Running the Analytical Workflow
 
 The notebooks are organized according to the project lifecycle.
@@ -982,7 +1049,34 @@ CrisisLens/
 │
 ├── outputs/
 │   ├── figures/
+│   │   ├── week1_data_quality_overview.png
+│   │   ├── week1_top_10_hottest_states.png
+│   │   ├── week1_drought_vs_crop_failure.png
+│   │   ├── week2_risk_category_distribution.png
+│   │   ├── week2_top10_risk_states.png
+│   │   ├── week2_risk_breakdown_stacked.png
+│   │   ├── week2_risk_correlation_heatmap.png
+│   │   ├── week3_trend_analysis_top_states.png
+│   │   ├── week3_simple_forecast_top5.png
+│   │   ├── week3_prophet_forecasts_top5.png
+│   │   ├── week3_model_comparison.png
+│   │   ├── week4_feature_importance.png
+│   │   ├── week4_shap_summary.png
+│   │   ├── week4_correlation_matrix.png
+│   │   ├── forecast_reality_check.png
+│   │   └── seasonal_validation.png
+│   │
 │   ├── reports/
+│   │   ├── risk_assessment_report.txt
+│   │   ├── state_risk_summary.csv
+│   │   ├── high_risk_states.csv
+│   │   ├── simple_forecasts_2026.csv
+│   │   ├── prophet_forecasts_2026.csv
+│   │   ├── model_comparison.csv
+│   │   ├── forecast_validation_results.csv
+│   │   ├── feature_importance.csv
+│   │   └── prediction_examples.csv
+│   │
 │   ├── backtesting_results.csv
 │   ├── week4_backtesting_report.txt
 │   └── week4_backtesting_validation.png
@@ -1057,15 +1151,14 @@ outputs/reports/prediction_examples.csv
 ```text
 outputs/backtesting_results.csv
 outputs/week4_backtesting_report.txt
+outputs/week4_backtesting_validation.png
 ```
 
 ---
 
 # 📌 Key Findings from the Current Prototype
 
-The current experiments demonstrate several observations.
-
-### 1. Climate indicators dominate the current ML experiment
+## 1. Climate indicators dominate the current ML experiment
 
 Rainfall anomaly is the most important feature in the Random Forest experiment, followed by:
 
@@ -1079,7 +1172,9 @@ Drought severity
 
 This is consistent with the project's intended climate–agriculture interaction.
 
-### 2. The risk model is multi-dimensional
+---
+
+## 2. The risk model is multi-dimensional
 
 The system does not rely on climate indicators alone.
 
@@ -1093,7 +1188,9 @@ Agriculture
 Economy
 ```
 
-### 3. Forecast uncertainty increases with prediction horizon
+---
+
+## 3. Forecast uncertainty increases with prediction horizon
 
 The backtesting experiment shows larger average errors at longer lead times:
 
@@ -1105,7 +1202,9 @@ The backtesting experiment shows larger average errors at longer lead times:
 
 This demonstrates why longer-horizon forecasts should be interpreted with greater uncertainty.
 
-### 4. Explainability is integrated into the workflow
+---
+
+## 4. Explainability is integrated into the workflow
 
 CrisisLens does not only generate a risk score.
 
@@ -1193,8 +1292,6 @@ They do not establish causal relationships between indicators and crisis events.
 
 # 🔮 Future Work
 
-The following improvements are planned for future versions.
-
 ### Data
 
 * [ ] Integrate verified government datasets
@@ -1216,7 +1313,7 @@ The following improvements are planned for future versions.
 ### Machine Learning
 
 * [ ] Add Gradient Boosting
-* [ ] Add XGBoost/LightGBM
+* [ ] Add XGBoost / LightGBM
 * [ ] Compare multiple ML algorithms
 * [ ] Introduce temporal validation
 * [ ] Introduce independently observed crisis labels
@@ -1227,7 +1324,7 @@ The following improvements are planned for future versions.
 * [ ] Improve ARIMA tuning
 * [ ] Improve Prophet tuning
 * [ ] Add probabilistic forecasting
-* [ ] Add confidence/credible intervals
+* [ ] Add confidence / credible intervals
 * [ ] Add longer forecast horizons
 * [ ] Compare against stronger time-series baselines
 
@@ -1324,34 +1421,34 @@ For an academic submission, the final project report should provide formal citat
 
 Contributions are welcome.
 
-### 1. Fork the repository
+## 1. Fork the Repository
 
 Create a personal copy of the project.
 
-### 2. Create a feature branch
+## 2. Create a Feature Branch
 
 ```bash
 git checkout -b feature/your-feature
 ```
 
-### 3. Implement and test your changes
+## 3. Implement and Test Your Changes
 
 Ensure that the dashboard and analytical workflow continue to function correctly.
 
-### 4. Commit your changes
+## 4. Commit Your Changes
 
 ```bash
 git add .
 git commit -m "Add new feature"
 ```
 
-### 5. Push the branch
+## 5. Push the Branch
 
 ```bash
 git push origin feature/your-feature
 ```
 
-### 6. Submit a Pull Request
+## 6. Submit a Pull Request
 
 Describe:
 
@@ -1374,7 +1471,7 @@ See the `LICENSE` file for the complete license terms.
 
 **Project:** CrisisLens
 
-**Repository:** CrisisLens
+**Repository:** [CrisisLens](https://github.com/Aishhwaryaa-Shrivastava/CrisisLens)
 
 For questions, suggestions, academic discussion, or collaboration, please open an issue or submit a pull request.
 
@@ -1421,7 +1518,7 @@ The complete workflow is:
 
 ---
 
-## ⚠️ Academic Prototype Disclaimer
+# ⚠️ Academic Prototype Disclaimer
 
 CrisisLens is a **research and academic prototype**.
 
@@ -1440,12 +1537,12 @@ Before operational deployment, the framework requires:
 * Security and reliability testing
 * Domain-expert review
 
+---
 
 # 📬 Contact
 
 **Project:** CrisisLens
 
-**Repository:** [Aishhwaryaa-Shrivastava/CrisisLens](https://github.com/Aishhwaryaa-Shrivastava/CrisisLens)
+**Repository:** https://github.com/Aishhwaryaa-Shrivastava/CrisisLens
 
 For questions, suggestions, or collaboration, open an issue or submit a pull request.
-
