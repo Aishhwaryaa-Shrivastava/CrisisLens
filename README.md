@@ -155,9 +155,12 @@ SHAP is used to understand how individual features influence model predictions.
 
 Output:
 
-text
-outputs/figures/week4_shap_summary.png
+```markdown
+### SHAP
 
+SHAP is used to understand how individual features influence model predictions.
+
+![SHAP Summary](outputs/figures/week4_shap_summary.png)
 
 ---
 
