@@ -13,8 +13,6 @@
 
 ## 📸 CrisisLens Dashboard
 
-## 📸 CrisisLens Dashboard
-
 ### 1. National Overview
 
 ![CrisisLens National Overview](docs/images/national-overview.png)
