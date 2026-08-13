@@ -13,28 +13,47 @@
 
 ## 📸 CrisisLens Dashboard
 
-<p align="center">
-  <img src="docs/images/national-overview.png" width="30%" alt="CrisisLens National Overview Dashboard">
-  <img src="docs/images/risk-across-states.png" width="30%" alt="Risk Across All States">
-  <img src="docs/images/states-by-risk-category.png" width="30%" alt="States by Risk Category">
-</p>
+## 📸 CrisisLens Dashboard
 
-<p align="center">
-  <img src="docs/images/states-needing-action.png" width="30%" alt="States Needing Action">
-  <img src="docs/images/recommended-actions.png" width="30%" alt="Recommended Actions">
-  <img src="docs/images/state-deep-dive.png" width="30%" alt="State Deep Dive">
-</p>
+### 1. National Overview
 
-<p align="center">
-  <img src="docs/images/risk-score-past-future.png" width="30%" alt="Risk Score Past and Future">
-  <img src="docs/images/model-comparison.png" width="30%" alt="Forecast Model Comparison">
-  <img src="docs/images/model-comparison-2.png" width="30%" alt="Forecast Model Comparison Analysis">
-</p>
+![CrisisLens National Overview](docs/images/national-overview.png)
 
-<p align="center">
-  <img src="docs/images/risk-drivers-indicators.png" width="30%" alt="Risk Drivers by Indicators and Risk Score">
-</p>
+### 2. Risk Across All States
 
+![Risk Across All States](docs/images/risk-across-states.png)
+
+### 3. States by Risk Category
+
+![States by Risk Category](docs/images/states-by-risk-category.png)
+
+### 4. States Needing Action
+
+![States Needing Action](docs/images/states-needing-action.png)
+
+### 5. Recommended Actions
+
+![Recommended Actions](docs/images/recommended-actions.png)
+
+### 6. State Deep Dive
+
+![State Deep Dive](docs/images/state-deep-dive.png)
+
+### 7. Risk Score — Past and Future
+
+![Risk Score Past and Future](docs/images/risk-score-past-future.png)
+
+### 8. Forecast Model Comparison
+
+![Forecast Model Comparison](docs/images/model-comparison.png)
+
+### 9. Forecast Model Comparison — Detailed
+
+![Forecast Model Comparison Detailed](docs/images/model-comparison-2.png)
+
+### 10. Risk Drivers by Indicators
+
+![Risk Drivers by Indicators](docs/images/risk-drivers-indicators.png)
 
 CrisisLens is a research-oriented crisis intelligence platform that combines **climate, agricultural, and economic indicators** to estimate regional stress, analyze historical risk patterns, forecast future risk, and provide interpretable machine-learning insights through an interactive dashboard.
 
