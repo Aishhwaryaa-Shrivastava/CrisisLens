@@ -96,6 +96,15 @@ The objective is not to replace official disaster-management or government early
 
 ---
 
+## 🎥 Project Demo
+
+Watch a short walkthrough of the CrisisLens Streamlit dashboard, including
+regional risk assessment, state-level analysis, forecasting, and risk-driver
+visualization.
+
+[▶️ Watch the CrisisLens Dashboard Demo](demo/crisislens-demo.mp4)
+
+
 # 🎯 Problem Statement
 
 Traditional risk-monitoring approaches often examine climate, agriculture, and economic indicators independently.
