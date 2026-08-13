@@ -506,16 +506,15 @@ Different forecasting approaches are compared using forecast evaluation metrics.
 
 The project's reported prototype comparison is:
 
-| Model          | Typical MAPE | Seasonality | Confidence Intervals | Complexity |
-| -------------- | -----------: | ----------- | -------------------- | ---------- |
-| Persistence    |       24–28% | No          | No                   | Very Low   |
-| Moving Average |       19–22% | Partial     | No                   | Low        |
-| Linear Trend   |       15–18% | No          | No                   | Low        |
-| Prophet        |       11–14% | Yes         | Yes                  | Medium     |
+ Model          
+ -
+ Persistence    
+ Moving Average 
+ Linear Trend   
+ Prophet        
 
-> These are the project's reported/typical comparison ranges rather than independently reproduced benchmark results. They should be treated as prototype evaluation results.
-
----
+>The prototype compares forecasting approaches using forecast-error metrics and model characteristics such as seasonality handling, confidence intervals, and model complexity.
+>---
 
 # 🤖 Machine Learning
 
@@ -547,23 +546,6 @@ Therefore:
 
 ---
 
-# 📊 Machine Learning Results
-
-The current Random Forest experiment produced:
-
-| Metric           |               Result |
-| ---------------- | -------------------: |
-| Records          |              **864** |
-| Features         |               **16** |
-| Training samples |              **691** |
-| Test samples     |              **173** |
-| Test R²          |            **0.996** |
-| Test MAE         | **0.64 risk points** |
-
-The high R² should be interpreted carefully because the target variable is a deterministic composite risk index derived from related input indicators.
-
----
-
 # 🧠 Explainable AI
 
 CrisisLens incorporates feature-importance analysis and SHAP to investigate which variables contribute most strongly to machine-learning predictions.
@@ -572,43 +554,18 @@ CrisisLens incorporates feature-importance analysis and SHAP to investigate whic
 
 ## Feature Importance
 
-The current Random Forest experiment identified the following leading variables:
+## Feature Importance
 
-| Rank | Feature             | Importance |
-| ---: | ------------------- | ---------: |
-|    1 | Rainfall anomaly    | **68.29%** |
-|    2 | Crop failure rate   | **14.67%** |
-|    3 | Drought severity    | **14.60%** |
-|    4 | Crop production     |  **1.47%** |
-|    5 | Temperature anomaly |  **0.34%** |
+The current Random Forest experiment identified the following leading variables:
 
 ![Feature Importance](outputs/figures/week4_feature_importance.png)
 
-The current experiment indicates that rainfall anomaly, crop failure, and drought severity dominate the model's predictions.
+The experiment indicates that rainfall anomaly, crop failure rate, and drought severity are among the leading predictive features.
 
-These values describe **model feature importance**, not causal influence.
-
+> **Important:** Feature importance describes model behavior and should not be interpreted as causal influence.
 ---
 
-## Category-Level Feature Importance
 
-The model experiment reported approximately:
-
-| Category    | Importance |
-| ----------- | ---------: |
-| Climate     |  **83.5%** |
-| Agriculture |  **16.2%** |
-| Economic    |   **0.4%** |
-
-These values describe **model feature importance**, not scientific causal influence.
-
-They should therefore be interpreted as:
-
-> Which variables were most useful to this model when reproducing the constructed risk index?
-
-rather than:
-
-> Which variables scientifically cause crises?
 
 ---
 
@@ -700,32 +657,6 @@ The validation workflow evaluates:
 
 ---
 
-## Backtesting Summary
-
-The current prototype backtesting experiment reports:
-
-| Metric                           |             Result |
-| -------------------------------- | -----------------: |
-| Scenarios evaluated              |              **5** |
-| Lead times                       | **7, 14, 30 days** |
-| Average absolute error           |    **2.66 points** |
-| Average percentage error         |          **5.37%** |
-| Severity classification accuracy |          **66.7%** |
-| Alert decision accuracy          |          **93.3%** |
-
-### Performance by Lead Time
-
-| Lead Time | Average Error | Severity Accuracy |
-| --------: | ------------: | ----------------: |
-|    7 days |      **1.93** |           **80%** |
-|   14 days |      **2.36** |           **60%** |
-|   30 days |      **3.70** |           **60%** |
-
-The results show increasing average forecast error at longer prediction horizons.
-
-> These are **prototype validation results**. They should not be interpreted as independent operational validation because the underlying project datasets include generated/simulated data and the current event definitions are limited.
-
----
 
 # 📋 Validation Interpretation
 
