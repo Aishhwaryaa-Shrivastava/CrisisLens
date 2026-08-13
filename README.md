@@ -11,7 +11,7 @@
 ![License](https://img.shields.io/badge/License-MIT-yellow)
 ![Status](https://img.shields.io/badge/Status-Research%20Prototype-orange)
 
-## 📸 CrisisLens Dashboard
+## 📸 CrisisLens Dashboard  Screenshots
 
 ### 1. National Overview
 
@@ -781,41 +781,6 @@ The dashboard is implemented in:
 ```text
 src/app_dashboard.py
 ```
-
----
-
-# 📸 Dashboard Screenshots
-
-If screenshots of the actual Streamlit application are later added, they can be stored in:
-
-```text
-docs/images/
-```
-
-Recommended screenshots:
-
-```text
-docs/images/
-├── dashboard-overview.png
-├── state-risk-analysis.png
-├── risk-forecast.png
-├── risk-trends.png
-└── model-explainability.png
-```
-
-They can then be embedded using:
-
-```markdown
-![CrisisLens Dashboard](docs/images/dashboard-overview.png)
-
-![State Risk Analysis](docs/images/state-risk-analysis.png)
-
-![Risk Forecast](docs/images/risk-forecast.png)
-
-![Model Explainability](docs/images/model-explainability.png)
-```
-
-> These screenshots are optional. The analytical result figures already exist under `outputs/figures/` and are directly referenced by this README.
 
 ---
 
