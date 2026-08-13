@@ -554,8 +554,6 @@ CrisisLens incorporates feature-importance analysis and SHAP to investigate whic
 
 ## Feature Importance
 
-## Feature Importance
-
 The current Random Forest experiment identified the following leading variables:
 
 ![Feature Importance](outputs/figures/week4_feature_importance.png)
