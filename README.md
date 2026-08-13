@@ -10,7 +10,31 @@
 ![SHAP](https://img.shields.io/badge/SHAP-Explainable%20AI-green)
 ![License](https://img.shields.io/badge/License-MIT-yellow)
 ![Status](https://img.shields.io/badge/Status-Research%20Prototype-orange)
-![CrisisLens Dashboard](docs/images/hero-dashboard.png)
+
+## 📸 CrisisLens Dashboard
+
+<p align="center">
+  <img src="docs/images/national-overview.png" width="30%" alt="CrisisLens National Overview Dashboard">
+  <img src="docs/images/risk-across-states.png" width="30%" alt="Risk Across All States">
+  <img src="docs/images/states-by-risk-category.png" width="30%" alt="States by Risk Category">
+</p>
+
+<p align="center">
+  <img src="docs/images/states-needing-action.png" width="30%" alt="States Needing Action">
+  <img src="docs/images/recommended-actions.png" width="30%" alt="Recommended Actions">
+  <img src="docs/images/state-deep-dive.png" width="30%" alt="State Deep Dive">
+</p>
+
+<p align="center">
+  <img src="docs/images/risk-score-past-future.png" width="30%" alt="Risk Score Past and Future">
+  <img src="docs/images/model-comparison.png" width="30%" alt="Forecast Model Comparison">
+  <img src="docs/images/model-comparison-2.png" width="30%" alt="Forecast Model Comparison Analysis">
+</p>
+
+<p align="center">
+  <img src="docs/images/risk-drivers-indicators.png" width="30%" alt="Risk Drivers by Indicators and Risk Score">
+</p>
+
 
 CrisisLens is a research-oriented crisis intelligence platform that combines **climate, agricultural, and economic indicators** to estimate regional stress, analyze historical risk patterns, forecast future risk, and provide interpretable machine-learning insights through an interactive dashboard.
 
