@@ -102,7 +102,7 @@ Watch a short walkthrough of the CrisisLens Streamlit dashboard, including
 regional risk assessment, state-level analysis, forecasting, and risk-driver
 visualization.
 
-[▶️ Watch the CrisisLens Dashboard Demo](demo/crisislens-demo (2).mp4)
+[▶️ Watch the CrisisLens Dashboard Demo](https://youtu.be/PDKmACSs46E?si=5z5zEFbj6EoCUXvv)
 
 
 # 🎯 Problem Statement
