@@ -13,10 +13,11 @@
 
 ## 🎥 Project Demo
 
-▶️ **[Watch the CrisisLens Dashboard Demo](https://youtu.be/PDKmACSs46E?si=5z5zEFbj6EoCUXvv)**
+[![CrisisLens Dashboard Demo](https://img.youtube.com/vi/PDKmACSs46E/maxresdefault.jpg)](https://www.youtube.com/watch?v=PDKmACSs46E)
+
+> 💡 *Click the thumbnail image above to watch the CrisisLens Streamlit dashboard walkthrough on YouTube.*
 
 This short walkthrough demonstrates the CrisisLens Streamlit dashboard, including:
-
 * 🌍 Regional risk assessment
 * 📊 State/UT risk analysis
 * 🌦️ Climate, agricultural, and economic risk factors
@@ -24,7 +25,7 @@ This short walkthrough demonstrates the CrisisLens Streamlit dashboard, includin
 * 🤖 Machine-learning analysis
 * 🧠 Risk-driver and explainability visualizations
 
-> **Note:** CrisisLens is currently an academic/research prototype.
+Note: CrisisLens is currently an academic/research prototype.
 
 ## 📸 CrisisLens Dashboard  Screenshots
 
