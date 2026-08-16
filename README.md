@@ -11,6 +11,21 @@
 ![License](https://img.shields.io/badge/License-MIT-yellow)
 ![Status](https://img.shields.io/badge/Status-Research%20Prototype-orange)
 
+## 🎥 Project Demo
+
+▶️ **[Watch the CrisisLens Dashboard Demo](https://youtu.be/PDKmACSs46E?si=5z5zEFbj6EoCUXvv)**
+
+This short walkthrough demonstrates the CrisisLens Streamlit dashboard, including:
+
+* 🌍 Regional risk assessment
+* 📊 State/UT risk analysis
+* 🌦️ Climate, agricultural, and economic risk factors
+* 📈 Historical trends and forecasting
+* 🤖 Machine-learning analysis
+* 🧠 Risk-driver and explainability visualizations
+
+> **Note:** CrisisLens is currently an academic/research prototype.
+
 ## 📸 CrisisLens Dashboard  Screenshots
 
 ### 1. National Overview
