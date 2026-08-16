@@ -15,7 +15,7 @@
 
 [![CrisisLens Dashboard Demo](https://img.youtube.com/vi/PDKmACSs46E/maxresdefault.jpg)](https://www.youtube.com/watch?v=PDKmACSs46E)
 
-> 💡 *Click the thumbnail image above to watch the CrisisLens Streamlit dashboard walkthrough on YouTube.*
+👆 **Click the thumbnail above** or **[click here to watch the full demo on YouTube](https://youtu.be/PDKmACSs46E?si=5z5zEFbj6EoCUXvv)**.
 
 This short walkthrough demonstrates the CrisisLens Streamlit dashboard, including:
 * 🌍 Regional risk assessment
@@ -25,8 +25,7 @@ This short walkthrough demonstrates the CrisisLens Streamlit dashboard, includin
 * 🤖 Machine-learning analysis
 * 🧠 Risk-driver and explainability visualizations
 
-Note: CrisisLens is currently an academic/research prototype.
-
+> **Note:** CrisisLens is currently an academic/research prototype.
 ## 📸 CrisisLens Dashboard  Screenshots
 
 ### 1. National Overview
@@ -112,13 +111,6 @@ The objective is not to replace official disaster-management or government early
 
 ---
 
-## 🎥 Project Demo
-
-Watch a short walkthrough of the CrisisLens Streamlit dashboard, including
-regional risk assessment, state-level analysis, forecasting, and risk-driver
-visualization.
-
-[▶️ Watch the CrisisLens Dashboard Demo](https://youtu.be/PDKmACSs46E?si=5z5zEFbj6EoCUXvv)
 
 
 # 🎯 Problem Statement
